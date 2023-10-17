@@ -1,0 +1,26 @@
+
+@baseURL = http://localhost:3000/api
+@username = "mrtec6"
+@password = "12abcd"
+
+###
+# @name postLogin
+POST {{baseURL}}/login
+content-type: application/json
+
+{
+    "username":"mrtec6",
+    "password":"12abcd"
+   
+}
+
+
+
+###GET ME
+@access_Token = {{postLogin.response.body.accessToken}}
+GET {{baseURL}}/profile
+Accept: application/json
+Authorization: Bearer {{access_Token}}
+
+
+# DELETE  http://localhost:3000/api/delete/5

@@ -1,6 +1,6 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
-const {createToken,verificate}= require("../JWT")
+const {createToken}= require("../JWT")
 var db = require("../database")
 require('dotenv').config()
 
@@ -23,20 +23,17 @@ router.post('/signup', async(req, res) => {
       values('${username}','${hash}','${code}','${image}')`
       db.promise().query(sql)
       res.json({ messag: 'created successfully' })
-      // console.log(hash)
-    })    
+     })    
   }
-   
-  
-
   } catch (err) {
     console.log(err)
   }
-  // console.log(req.body.username)
+ 
 })
 
+// ********************************Login*************************************************
+
 router.post('/login', async (req, res) => {
-// console.log(req.body)
   const {username,password} = req.body
   
   try {
@@ -49,7 +46,7 @@ router.post('/login', async (req, res) => {
       if(!match){
         res.status(400).json({error:'combination of wrong username or password supply'})
       }
-      const accessToken = createToken(result[0])
+      const accessToken = createToken(result[0])      
       res.status(200).json({accessToken})
     })
   } catch (err) {
@@ -58,44 +55,14 @@ router.post('/login', async (req, res) => {
 })
 
 
-router.get('/users',verificate, (req,res)=>{
-
-})
-
-
-
-router.put('/', (req, res) => {
-  try {
-    let sql = `UPDATE users SET 
-    username = '${req.body.username}',
-    password = '${req.body.password}',
-    code = '${req.body.code}',
-    image = '${req.body.image}'
-    WHERE id = '${req.body.id}'
-    `
-
-    db.promise().query(sql)
-    res.json({ messag: 'update successfully' })
-
-  } catch (err) {
-    console.log(err)
-  }
-  // console.log(req.body.username)
-})
 
 
 
 
-router.get('/:id', async (req,res)=>{
-  let sql = `SELECT * FROM users WHERE id = ${req.params.id}`;
-  const [result] = await db.promise().query(sql)
-  res.json(result)
-  })
 
-  router.delete('/delete/:id', async (req,res)=>{
-    let sql = `DELETE FROM users WHERE id = ${req.params.id}`;
-    const [result] = await db.promise().query(sql)
-    res.json({message:'The item deleted'})
-    })
+
+
+
+
 
 module.exports = router
