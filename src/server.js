@@ -15,6 +15,8 @@ app.use(cors());
 app.use((req,res,next)=>{
   next();
 })
+
+// Router
 app.use('/api', User)
 app.use('/api/tasks', Task)
 app.use('/api/profile', Profile)
