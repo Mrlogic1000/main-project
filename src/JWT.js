@@ -10,10 +10,28 @@ function createToken(user){
 }
 
 function verificate(req,res,next){
-    const accessToken = req.headers.authorization.split(" ")[1]    
-   const token = verify(accessToken,process.env.JWTKEY )
-   res.user = token
-    return next()
+    const bearer = req.headers["authorization"]
+    if(typeof bearer != 'undefined'){
+        const accessToken = bearer.split(" ")[1]  
+        const token = verify(accessToken,process.env.JWTKEY )
+        if(token){
+            // console.log(token)
+            req.token = token
+            return next()
+        }else{
+            return res.status(403).json("Please authentication is neccessary") 
+
+        }      
+
+    }else{
+        return res.status(403).json("The token is needed")
+
+    }
+    
+   
+   
+    
+  
 
 }
 module.exports = {

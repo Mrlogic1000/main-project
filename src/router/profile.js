@@ -8,8 +8,11 @@ const router = express.Router()
 
 
 
-router.get('/',verificate, (req,res)=>{
-    res.json(res.user)
+router.get('/', verificate, async (req,res)=>{
+  let sql = `SELECT id,username,code,image FROM users WHERE id = ${req.token.id}`;
+  const [result] = await db.promise().query(sql)
+  res.json(result)
+    
   
   })
 
