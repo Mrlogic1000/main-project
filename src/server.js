@@ -6,6 +6,7 @@ const port = 3000
 const User = require("./router/auth")
 const Task = require('./router/task')
 const Profile = require('./router/profile')
+const Report = require('./router/report')
 
 
 app.use(express.json())
@@ -19,6 +20,7 @@ app.use((req,res,next)=>{
 // Router
 app.use('/api', User)
 app.use('/api/tasks', Task)
+app.use('/api/reports', Report)
 app.use('/api/profile', Profile)
 
 

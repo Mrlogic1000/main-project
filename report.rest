@@ -1,0 +1,58 @@
+@baseURL = http://localhost:3000/api
+@username = "mrtec6"
+@password = "12abcd"
+
+
+# @name postLogin
+POST {{baseURL}}/login
+content-type: application/json
+
+{
+    "username":"mrtec6",
+    "password":"12abcd"
+   
+}
+
+###---------------------------------------------------------- get reports
+@access_Token = {{postLogin.response.body.accessToken}}
+
+GET {{baseURL}}/reports
+Accept: application/json
+# Authorization: Bearer {{access_Token}}
+
+###---------------------------------------------- get report by id
+GET {{baseURL}}/reports/1
+
+###--------------------------------------------------- create reports
+POST  {{baseURL}}/reports
+Content-Type: application/json
+
+{    
+    "report": "Router",
+    "reporter": "mrlogic",
+    "status": "urgent",
+    "area": "indoor",
+    "comments": "Forgoten Password",
+    "date": "2023-10-08T23:00:00.000Z",
+    "image": null
+  }
+
+
+###------------------------------------------update
+PUT  {{baseURL}}/reports
+Content-Type: application/json
+
+ {
+    "id": 2,
+    "report": "Net",
+    "reporter": "mrlogic",
+    "status": "urgent",
+    "area": "indoor",
+    "comments": "the Network is not working",
+    "date": "2023-10-17T23:00:00.000Z",
+    "image": null
+  }
+
+###--------------------------------------------------------------DELETE
+
+DELETE {{baseURL}}/reports/14

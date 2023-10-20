@@ -29,8 +29,8 @@ router.put('/', async (req, res) => {
     let body = req.body
 
     try {
-        let sql = `UPDATE tasks SET name = '${body.name}', type=?, status=?, assign=?, ob=? WHERE id = ?`
-        const [result] = await db.promise().execute(sql, [, body.type, body.status, body.assign, body.ob, body.id])
+        let sql = `UPDATE tasks SET name =? , type=?, status=?, assign=?, ob=? WHERE id = ?`
+        const [result] = await db.promise().execute(sql, [body.name, body.type, body.status, body.assign, body.ob, body.id])
         res.json({ result })
 
     } catch (err) {
