@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     }
 
 })
-router.get('/', verificate, async (req, res) => {
+router.get('/', async (req, res) => {
     const [result] = await db.promise().query('select * from tasks')
     res.json(result)
 })

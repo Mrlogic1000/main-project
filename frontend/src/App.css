@@ -17,6 +17,8 @@
  background-color: var(--background);
 }
 
+
+
 a{
   color: inherit;
   font-style: inherit;
@@ -115,24 +117,29 @@ a{
 .app-link{
   display: flex;  
   align-items: center;
-  padding-left: 20px;  
+  gap: 10px;
+  /* padding-left: 20px;   */
   margin-top: 10px;
   
 }
 .icon{
   color: var(--primary) !important;
 }
-.active{
-  border-left: solid 2px ;
-  background-color: var(--hover);  
-  color: var(--white);
-}
+
 .app-link .link {
   color: white; 
   text-align: left;
   padding: 16px;
   text-decoration: none;
-  display: block;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  /* background-color: red; */
+}
+.active{
+  border-left: solid 2px ;
+  background-color: var(--hover);  
+  color: var(--white);
 }
 
 /* Change color on hover */
@@ -147,6 +154,20 @@ a{
 
   background-color: var(--background);
   /* padding-left: 20px; */
+}
+
+.modal{
+  width: 0;
+  height: 0;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 20%;
+  transition: all 1s;
+}
+.content:hover>.modal{
+  width: 50%;
+  height: 50vh;
 }
 .mini-header{
   background-color: var(--white);

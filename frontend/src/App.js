@@ -7,20 +7,25 @@ import {
   Route } from 'react-router-dom'
 import Home from './page/Home';
 import RootLayout from './components/RootLayout';
-import Task from './page/Task';
-import Report from './page/Report';
+import Task, {loader as TaskLoader} from './page/Task';
+import Report, {loader as ReportLoader} from './page/Report';
 import Profile from './page/Profile';
-import Dashboard from './page/Dashboard';
-import Users from './page/Users';
+// import Dashboard from './page/Dashboard';
+import Users,{loader as UserLoader} from './page/Users';
+import Device from './page/Device';
+import Department from './page/Department';
+import { loader } from './page/Task';
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout/>}>
         <Route index element={<Home/>}/>
-        <Route path='/users' element={<Users/>}/>
-        <Route path='/task' element={<Task/>} />
-        <Route path='/report' element={<Report/>} />
+        <Route path='/users' element={<Users/>}  loader={UserLoader}/>
+        <Route path='/task' element={<Task/>} loader={TaskLoader} />
+        <Route path='/report' element={<Report/>} loader={ReportLoader} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/device' element={<Device/>} />
+        <Route path='/department' element={<Department/>} />
       </Route>
     )
       )

@@ -1,62 +1,24 @@
 import React from 'react'
+import client from '../HTTPRequest'
 import MiniHeader from '../components/MiniHeader'
+import Tables from '../components/Tables'
+import { useLoaderData } from 'react-router-dom'
 
 function Report() {
+  const datas = useLoaderData()
+  console.log(Object.keys(datas[0]))
   return (
     <>
     <MiniHeader name='Report' page=' / Report'/>
-    <div className='table-container'>
-      <h3>Report</h3>
-      <table className='table'>
-        <thead className='table-header'>
-          <tr>
-            <th>Report</th>
-            <th>Reporter</th>
-            <th>Status</th>
-            <th>Outlet</th>
-            <th>Comments</th>
-            <th>Date</th>
-            <th>Image</th>
-
-
-          </tr>
-        </thead>
-        <tbody className='table-body'>
-          <tr>
-            <td>Intercom is faulty</td>
-            <td>Adewale</td>
-            <td>Urgent</td>
-            <td>Room</td>          
-            <td>It is an urgent because there is a guest</td>
-            <td>20-10-2023</td>
-            <td>.....</td>
-            
-            </tr>
-          <tr>
-            <td>Intercom is faulty</td>
-            <td>Adewale</td>
-            <td>Urgent</td>
-            <td>Room</td>          
-            <td>It is an urgent because there is a guest</td>
-            <td>20-10-2023</td>
-            <td>.....</td>
-            
-            </tr>
-          <tr>
-            <td>Intercom is faulty</td>
-            <td>Adewale</td>
-            <td>Urgent</td>
-            <td>Room</td>          
-            <td>It is an urgent because there is a guest</td>
-            <td>20-10-2023</td>
-            <td>.....</td>
-            
-            </tr>
-        </tbody>
-      </table>
-    </div>
+    <Tables datas={datas}/>
+    
     </>
   )
 }
 
 export default Report
+
+export async function loader(){
+  const data = await client.get('/reports')
+ return data.data
+}

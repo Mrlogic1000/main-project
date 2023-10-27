@@ -1,6 +1,7 @@
 import React from 'react'
 import {FaTasks,FaUsers,FaRegUser} from 'react-icons/fa'
-import {MdOutlineReportOff,MdOutlineDashboard} from 'react-icons/md'
+import {FcDepartment} from 'react-icons/fc'
+import {MdOutlineReportOff,MdOutlineDashboard,MdDevicesOther} from 'react-icons/md'
 
 import AppLink from './AppLink'
 
@@ -11,6 +12,8 @@ function SideBar() {
         {icon:<FaTasks/>, title:'Task', active:false, route:'/task'},
         {icon:<MdOutlineReportOff/>, title:'Report', active:false, route:'/report'},
         {icon:<FaRegUser/>, title:'Profile', active:false, route:'/profile'},
+        {icon:<MdDevicesOther/>, title:'Devices', active:false, route:'/device'},
+        {icon:<FcDepartment/>, title:'Department', active:false, route:'/department'},
     ]
   return (
     <div className="sidenav">

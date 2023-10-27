@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function AppLink({title,icon,active,route}) {
   return (
-    <div className={active?"app-link active":"app-link"}>
-    <span className='icon'>{icon}</span><Link to={route} className='link' href="#">{title}</Link>
+    <div className="app-link">
+    <NavLink to={route} className='link'><span className='icon'>{icon}</span>{title}</NavLink>
     </div>
   )
 }
