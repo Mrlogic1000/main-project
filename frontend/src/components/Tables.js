@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link} from 'react-router-dom'
 
-function Tables({datas}) {
+function Tables({datas,link,title,linkId}) {
   return (
     <div className='table-container'>
+      <div className="table-header">
       <h3>Users table</h3>
+      <Link className='link-btn' to={link}>{title}</Link>
+      </div>
       <table className='table'>
-        <thead className='table-header'>
+        <thead className='thead'>
           <tr>
            <th>Name</th>
            <th>Type</th>
@@ -14,6 +18,7 @@ function Tables({datas}) {
            <th>OB</th>           
            <th>Date</th>           
            <th>Due Date</th>           
+           <th>View</th>           
             
           </tr>
         </thead>
@@ -29,6 +34,7 @@ function Tables({datas}) {
               <td>{data.ob}</td>
               <td>{data.date}</td>
               <td>{data.due_date}</td>
+              <td><Link to={`${data.id}`}>View</Link></td>
               </tr>
               
               ))

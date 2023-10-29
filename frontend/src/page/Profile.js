@@ -5,7 +5,7 @@ import profile from '../images/profile1.jpg'
 function Profile() {
     return (
         <>
-             <MiniHeader name='Profile' page=' / Profile'/>
+             <MiniHeader name='Profile' page='/profile'/>
 
             <div className="profile">
                 <div className="profile-data">

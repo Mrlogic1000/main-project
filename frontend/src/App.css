@@ -1,67 +1,89 @@
 :root {
-  --primary: rgb(133,180,208);
-  --white: rgb(255,255,255);
-  --background:rgb(237,241,245);
-  --secondary: rgb(80,102,115);
-  --sidebar-header:rgb(119,162,187);
-  --button: rgb(119,162,187);
+  --primary: rgb(133, 180, 208);
+  --white: rgb(255, 255, 255);
+  --background: rgb(237, 241, 245);
+  --secondary: rgb(80, 102, 115);
+  --sidebar-header: rgb(119, 162, 187);
+  --button: rgb(119, 162, 187);
   --sidebar-size: 200px;
   --app-header-height: 60px;
-  --hover: rgb(90,112,125);
-  --text-color: rgba(120, 120, 120,.7);
-  --borde-color: rgba(100, 100, 100,.3);
+  --hover: rgb(90, 112, 125);
+  --text-color: rgba(120, 120, 120, .7);
+  --borde-color: rgba(100, 100, 100, .3);
 
 }
 
 .app {
- background-color: var(--background);
+  background-color: var(--background);
 }
 
 
+button{
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: var(--secondary);
+  color: var(--white);
+  border: 0;
+ 
+}
 
-a{
+
+a {
   color: inherit;
   font-style: inherit;
 }
-.btn{
+.link-btn{ 
+  text-align: left;
+  padding: 16px;
+  font-style: none;
+  text-decoration: none;  
+  gap: 10px;
+  
+}
+
+.btn {
   list-style: none;
   text-decoration: none;
 }
-.btn:hover{
+
+.btn:hover {
   color: var(--primary);
 }
 
 .app-header {
-  background-color: var(--primary) ; 
+  background-color: var(--primary);
   margin-left: var(--sidebar-size);
-  padding-left: 20px; 
+  padding-left: 20px;
   display: flex;
   justify-content: space-between;
   height: var(--app-header-height);
   /* font-size: calc(10px + 2vmin); */
   color: white;
 }
-.avater-box{
+
+.avater-box {
   display: flex;
-  align-items: center;  
+  align-items: center;
   /* background-color: red; */
   height: var(--app-header-height);
   margin-right: 20px;
-  
+
 
 }
-.circular-avarter { 
+
+.circular-avarter {
   position: relative;
-   width: 60px; 
-   height: 60px; 
-   overflow: hidden; 
-   border-radius: 50%;  
-   margin-right: 15px;
-   }
- .circular-avarter img { 
-  width: 100%; 
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.circular-avarter img {
+  width: 100%;
   height: auto;
- }
+}
 
 .app-link {
   color: #61dafb;
@@ -74,14 +96,15 @@ a{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--secondary) ;
+  background-color: var(--secondary);
   overflow-x: hidden;
 }
 
-.sidenav-header{
+.sidenav-header {
   height: 60px;
   background-color: var(--sidebar-header);
 }
+
 .app-logo {
   height: 100%;
   display: flex;
@@ -92,7 +115,8 @@ a{
   text-align: center;
 
 }
-.logo{
+
+.logo {
   background-color: white;
   color: var(--primary);
   font-size: 28px;
@@ -104,30 +128,28 @@ a{
   align-items: center;
   justify-content: center;
   border-radius: 100%;
- 
+
 }
 
-.app-logo span{
- 
- 
-}
+
 
 
 /* Side navigation links */
-.app-link{
-  display: flex;  
+.app-link {
+  display: flex;
   align-items: center;
   gap: 10px;
   /* padding-left: 20px;   */
   margin-top: 10px;
-  
+
 }
-.icon{
+
+.icon {
   color: var(--primary) !important;
 }
 
 .app-link .link {
-  color: white; 
+  color: white;
   text-align: left;
   padding: 16px;
   text-decoration: none;
@@ -136,136 +158,264 @@ a{
   width: 100%;
   /* background-color: red; */
 }
-.active{
-  border-left: solid 2px ;
-  background-color: var(--hover);  
+
+.active {
+  border-left: solid 2px;
+  background-color: var(--hover);
   color: var(--white);
 }
 
 /* Change color on hover */
 .app-link:hover {
-  background-color: var(--hover);  
+  background-color: var(--hover);
   color: var(--white);
 }
 
 /* Style the content */
 .content {
   margin-left: var(--sidebar-size);
+  /* position: relative; */
 
   background-color: var(--background);
   /* padding-left: 20px; */
 }
 
-.modal{
-  width: 0;
-  height: 0;
-  background-color: red;
+.modal-window {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 20%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: block;
   transition: all 1s;
 }
-.content:hover>.modal{
-  width: 50%;
-  height: 50vh;
+
+.modal {
+  width: 600px;
+  height: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;  
+  margin-top: 100px;
+  /* padding: 15px;  */
+  background-color: rgb(246, 246, 246);
+
 }
-.mini-header{
+.modal button{
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.modal button:hover{
+  background-color: var(--primary);
+}
+
+.modal-header {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 10px;
+  color: var(--white);
+  position: relative;
+  /* border-top-right-radius:  10px;
+  border-top-left-radius:  10px; */
+}
+.modal-header .close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+.form {
+  flex: 1;
+  background-color: var(--background);
+
+}
+
+.modal form {
+  height: 100%;
+  background-color: var(--background);
+  padding: 0 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+ 
+}
+
+.inline {
+  display: flex;
+  padding-top: 20px;
+  gap: 20px;
+  width: 100%;
+  /* background-color: red; */
+
+}
+
+.input-control {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  justify-content: space-between;
+  /* width: 100%; */
+  /* background-color: yellow; */
+}
+
+.inline input,
+.inline select {
+  flex: 1;
+  box-sizing: border-box;
+  font-size: 17px;
+  border: 1px solid #d6d6d6;
+  outline: none;
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+  .inline input[type='text']{
+    background-color: white;
+
+  }
+  
+
+.inline .label {
+  width: 50px;
+  text-align: right;
+  /* background-color: green; */
+}
+
+.input-control select {
+flex: 1;
+  
+
+}
+::-webkit-input-placeholder {
+  color:#d9d9d9;
+ }
+ select:invalid{
+  color:#d9d9d9;
+  }
+.content:hover>.modal-window {
+  display: block;
+}
+
+.mini-header {
   background-color: var(--white);
   padding: 10px;
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
-  
+
 }
-.mini-header h2{
+
+.mini-header h2 {
   color: rgb(118, 118, 118);
 }
-.mini-header span{
+
+.mini-header span {
   color: var(--primary);
 }
 
-.table-container{
-  background-color: var(--white);
-  margin: 20px;
+.table-container {
+  background-color: var(--white); 
   color: var(--text-color);
   padding: 10px;
 }
-.table-container h3{
+
+.table-container h3 {
   color: gray;
 }
 
 
-.table{
+.table {
   width: 100%;
- border-collapse: collapse;
- background-color: var(--white);
- margin-top: 10px;
+  border-collapse: collapse;
+  background-color: var(--white);
+  margin-top: 10px;
 }
-.table th{
+.table-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right:5px;
+ 
+}
+.table th {
   text-transform: capitalize;
   color: gray;
 }
 
-.table td,th{
-  border-bottom: 1px solid var(--borde-color) ;  
+.table td,
+th {
+  border-bottom: 1px solid var(--borde-color);
   text-align: left;
   padding: 10px 0;
-  
-}
-.profile{
-display: flex;
-margin: 30px;
-gap: 20px;
+
 }
 
-.profile-data{
+.profile {
+  display: flex;
+  margin: 30px;
+  gap: 20px;
+}
+
+.profile-data {
   width: 350px;
-  background-color: rgb(166,154,172);
+  background-color: rgb(166, 154, 172);
   height: 250px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  
+
 
 }
-.profile-image{
+
+.profile-image {
   /* background-color: red; */
   text-align: center;
 }
 
-.profile-image img{
+.profile-image img {
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  object-fit:contain;
+  object-fit: contain;
   margin: auto;
 }
-.profile-title{
+
+.profile-title {
   color: white;
 
 }
-.profile-info{
+
+.profile-info {
   background-color: var(--white);
   width: 100%;
   padding: 10px;
 
 }
 
-.form-control{
+.form-control {
   display: flex;
   flex-direction: column;
   /* margin-top: 20px; */
 }
-.form-control label{
+
+.form-control label {
   padding: 20px 0;
 }
-.form-control:first-child{
-padding-top: 0;
+
+.form-control:first-child {
+  padding-top: 0;
 }
-.form-control input{
+
+.form-control input {
   border: 0;
   border-bottom: 1px solid var(--borde-color);
   /* padding: 5px 0; */
-  
+
   outline: none;
 }

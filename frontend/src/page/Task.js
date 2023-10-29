@@ -4,17 +4,16 @@ import axios from 'axios'
 import client from '../HTTPRequest'
 import { useLoaderData } from 'react-router-dom'
 import Tables from '../components/Tables'
+import Modal from '../components/Modal'
 function Task() {
   const datas = useLoaderData()
   console.log(Object.keys(datas[0]))
 
   return (
     <>
-    <MiniHeader name='Task' page=' / Task'/>
-    <Tables datas={datas}/>
-    <div className='modal'>
-
-    </div>
+      
+      <Tables datas={datas} link='/create-task' title='Create Task'/>
+      
     </>
   )
 }
@@ -22,9 +21,8 @@ function Task() {
 export default Task
 
 
+export async function loader() {
 
-export async function loader(){
-  
-const data = await client.get('/tasks')
- return data.data
+  const data = await client.get('/tasks')
+  return data.data
 }
