@@ -17,7 +17,7 @@ import Device from './page/Device';
 import Department from './page/Department';
 
 import Modal from './components/Modal';
-import CreateTask from './components/CreateTask';
+import CreateTask,{action as TaskAction} from './components/CreateTask';
 import TaskById,{loader as TaskIdLoader} from './page/TaskById';
 import TaskLayout from './components/TaskLayout';
 import Error from './page/Error';
@@ -32,7 +32,7 @@ function App() {
           <Route index element={<Task />} loader={TaskLoader} />
           <Route path=':id' element={<TaskById />}loader={TaskIdLoader} />
         </Route>
-        <Route path='/create-task' element={<CreateTask />} >
+        <Route path='/create-task' element={<CreateTask />} action={TaskAction} >
 
         </Route>
         <Route path='/report' element={<Report />} loader={ReportLoader} />
