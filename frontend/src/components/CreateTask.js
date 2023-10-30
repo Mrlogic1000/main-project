@@ -1,6 +1,7 @@
 import React from 'react'
 import Modal from './Modal'
-import { Form } from 'react-router-dom'
+import { Form, redirect } from 'react-router-dom'
+import client from '../HTTPRequest'
 
 function CreateTask() {  
   const types = [
@@ -12,7 +13,7 @@ function CreateTask() {
     'Computer',
     'Software'
   ]
-  const status =['Urgent','Pending','Approve']
+  const status =['Urgent','Pending','Approve','Done']
   const assigns = [
     {name:'MrTech',id:1},
     {name:'MrRobot',id:2},
@@ -94,6 +95,11 @@ const task ={
   assign: form.get('assign'),
   ob: form.get('ob')  
 }
-console.log(task)
+const response = await client.post('/tasks', task)
+if(response.status === 200){
+  return redirect('/task')
+}
+console.log(response)
+
 
 }

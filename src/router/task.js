@@ -49,7 +49,7 @@ router.delete('/:id', async (req, res) => {
     if (affectedRows.affectedRows > 0) {
         res.json("Task was deleted successfully")
     } else {
-        res.json("No Item with the idenetity in the database")
+        res.json("No Item with the idenetity in the databases")
 
     }
 

@@ -1,18 +1,29 @@
 import React from 'react'
-import MiniHeader from '../components/MiniHeader'
-import axios from 'axios'
+// import MiniHeader from '../components/MiniHeader'
+// import axios from 'axios'
 import client from '../HTTPRequest'
-import { useLoaderData } from 'react-router-dom'
+import { Navigate, redirect, useLoaderData, useNavigate } from 'react-router-dom'
 import Tables from '../components/Tables'
-import Modal from '../components/Modal'
+// import Modal from '../components/Modal'
 function Task() {
   const datas = useLoaderData()
-  console.log(Object.keys(datas[0]))
+  const navigate = useNavigate()
+
+  const deteleItem = async (id)=>{
+    const num = Number(id)
+    // const response = await client.delete(`/tasks/${num}`)
+    // console.log(response)
+    // if(response.status===200){
+    //   return redirect('/task')
+    // }
+    navigate('/task')
+
+  }
 
   return (
     <>
       
-      <Tables datas={datas} link='/create-task' title='Create Task'/>
+      <Tables datas={datas} link='/create-task' title='Create Task' action={deteleItem}/>
       
     </>
   )

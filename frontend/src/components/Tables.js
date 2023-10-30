@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
+import {MdOutlineDeleteForever,MdOutlineEdit} from 'react-icons/md'
 
-function Tables({datas,link,title,linkId}) {
+function Tables({datas,link,title,linkId,action}) {
   return (
+    
     <div className='table-container'>
       <div className="table-header">
       <h3>Users table</h3>
@@ -18,7 +20,7 @@ function Tables({datas,link,title,linkId}) {
            <th>OB</th>           
            <th>Date</th>           
            <th>Due Date</th>           
-           <th>View</th>           
+           <th>Action</th>           
             
           </tr>
         </thead>
@@ -34,7 +36,14 @@ function Tables({datas,link,title,linkId}) {
               <td>{data.ob}</td>
               <td>{data.date}</td>
               <td>{data.due_date}</td>
-              <td><Link to={`${data.id}`}>View</Link></td>
+              <td>
+              <Link to={`${data.id}`}><MdOutlineEdit/></Link>
+                <button onClick={()=>{action(data.id)}}><MdOutlineDeleteForever/></button>
+              </td>
+                           
+                
+              
+              
               </tr>
               
               ))
