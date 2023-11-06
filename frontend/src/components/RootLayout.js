@@ -10,7 +10,6 @@ function RootLayout() {
     <div className='app-body'>
 
       <SideBar/>
-
       <Headers/>
       <div className="content">
          <Outlet/>

@@ -1,7 +1,7 @@
 :root {
-  --primary: rgb(133, 180, 208);
+  --primary: rgb(133,180,208);
   --white: rgb(255, 255, 255);
-  --background: rgb(237, 241, 245);
+  --background: hsl(271, 8, 100);
   --secondary: rgb(80, 102, 115);
   --sidebar-header: rgb(119, 162, 187);
   --button: rgb(119, 162, 187);
@@ -12,19 +12,37 @@
   --borde-color: rgba(100, 100, 100, .3);
 
 }
+/* :root {
+  --black:        rgb(0, 0, 0);
+  --darker-blue:  rgb(5, 5, 29);
+  --dark-blue:    rgb(12, 12, 70);
+  --light-blue:   rgb(13, 100, 176);
+  --lighter-blue: rgb(180, 220, 255);
+  --gray:         rgb(167, 167, 167);
+  --light-gray:   rgb(210, 210, 210);
+  --lighter-gray: rgb(243, 243, 243);
+  --off-white:    rgb(252, 252, 252);
+  --white:        rgb(255, 255, 255);
+} */
 
+  --white-
 .app {
   background-color: var(--background);
 }
 
+/* .status{
+  background-color: red;
+  width: 200px;
+  border-radius: 40px;
+} */
 
-button{
+button {
   padding: 10px 15px;
   margin: 20px;
   background-color: var(--secondary);
   color: var(--white);
   border: 0;
- 
+
 }
 
 
@@ -32,13 +50,14 @@ a {
   color: inherit;
   font-style: inherit;
 }
-.link-btn{ 
+
+.link-btn {
   text-align: left;
   padding: 16px;
   font-style: none;
-  text-decoration: none;  
+  text-decoration: none;
   gap: 10px;
-  
+
 }
 
 .btn {
@@ -177,7 +196,7 @@ a {
   /* position: relative; */
 
   background-color: var(--background);
-  /* padding-left: 20px; */
+ 
 }
 
 .modal-window {
@@ -192,25 +211,27 @@ a {
   background-color: rgba(0, 0, 0, 0.3);
   display: block;
   transition: all 1s;
+  z-index: 20;
 }
 
 .modal {
-  width: 600px;
-  height: 50%;
+  width: 50%;
+  height: auto;
   margin: auto;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   margin-top: 100px;
   /* padding: 15px;  */
   background-color: rgb(246, 246, 246);
 
 }
-.modal button{
+
+.modal button {
   margin-left: 50px;
   cursor: pointer;
 }
 
-.modal button:hover{
+.modal button:hover {
   background-color: var(--primary);
 }
 
@@ -223,7 +244,8 @@ a {
   /* border-top-right-radius:  10px;
   border-top-left-radius:  10px; */
 }
-.modal-header .close{
+
+.modal-header .close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -243,13 +265,13 @@ a {
   padding: 0 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
- 
+
 }
 
 .inline {
   display: flex;
-  padding-top: 20px;
-  gap: 20px;
+  padding-top: 1em;
+  gap: 1em;
   width: 100%;
   /* background-color: red; */
 
@@ -265,39 +287,53 @@ a {
 }
 
 .inline input,
-.inline select {
+.inline select{
   flex: 1;
   box-sizing: border-box;
   font-size: 17px;
   border: 1px solid #d6d6d6;
   outline: none;
   height: 34px;
-  padding-left: 10px;
-  padding-right: 10px;
-  }
-  .inline input[type='text']{
-    background-color: white;
+  padding-left: .5;
+  padding-right: .5em;
+}
 
-  }
+.inline input[type='text'] {
+  background-color: white;
+
+}
+.inline textarea{
+  height: 100px;
+  flex: 1;
+  box-sizing: border-box;
+  font-size: 17px;
+  border: 1px solid #d6d6d6;
+  outline: none;  
+  padding: .5em;
   
+}
+
 
 .inline .label {
-  width: 50px;
+  width: 80px;
   text-align: right;
   /* background-color: green; */
 }
 
 .input-control select {
-flex: 1;
-  
+  flex: 1;
+
 
 }
+
 ::-webkit-input-placeholder {
-  color:#d9d9d9;
- }
- select:invalid{
-  color:#d9d9d9;
-  }
+  color: #d9d9d9;
+}
+
+select:invalid {
+  color: #d9d9d9;
+}
+
 .content:hover>.modal-window {
   display: block;
 }
@@ -308,6 +344,7 @@ flex: 1;
   display: flex;
   justify-content: space-between;
   padding: 10px 30px;
+  margin-bottom: 20px;
 
 }
 
@@ -320,9 +357,9 @@ flex: 1;
 }
 
 .table-container {
-  background-color: var(--white); 
+  background-color: var(--white);
   color: var(--text-color);
-  padding: 10px;
+  /* margin: 15px; */
 }
 
 .table-container h3 {
@@ -331,18 +368,25 @@ flex: 1;
 
 
 .table {
-  width: 100%;
+  width: 100%;  
   border-collapse: collapse;
   background-color: var(--white);
+  padding: 0;
   margin-top: 10px;
 }
-.table-header{
+
+
+.table-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right:5px;
- 
+  padding-right: 5px;
+
 }
+table{
+  overflow-x: auto;
+}
+
 .table th {
   text-transform: capitalize;
   color: gray;
@@ -352,8 +396,31 @@ flex: 1;
 th {
   border-bottom: 1px solid var(--borde-color);
   text-align: left;
-  padding: 10px 0;
+  padding: 1em;
+  padding-left: 5px;
+}
 
+.table tbody tr{
+  border-left: .5em solid;
+}
+
+
+.edit-btn, .del-btn{
+  background-color: red;
+  color: white;
+  padding: .3rem;
+  margin-left: .5em;
+  font-size: 17px;
+  cursor: pointer;
+}
+.edit-btn{
+  background-color: var(--secondary);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(100, 100, 100, .1);
+  /* color: var(--white); */
 }
 
 .profile {
@@ -418,4 +485,17 @@ th {
   /* padding: 5px 0; */
 
   outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  .sidenav{
+    display: none;
+  }
+  .app-header{
+    margin-left: 0;
+  }
+  .content{
+   margin: 0;
+  }
+
 }

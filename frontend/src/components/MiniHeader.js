@@ -6,7 +6,7 @@ function MiniHeader({name,page}) {
   return (
     <header className='mini-header'>
        <h2>{name}</h2>
-       <div><Link to={page} className='btn'>{name}</Link>/<strong>{name}</strong></div>
+       <div><Link to='/' className='btn'>Dashboard</Link>/<strong>{name}</strong></div>
 
 
     </header>

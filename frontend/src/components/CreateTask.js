@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from './Modal'
 import { Form, redirect } from 'react-router-dom'
 import client from '../HTTPRequest'
 
-function CreateTask() {  
+function CreateTask() {
+  const [selected, setSelected] = useState('')
+  function handleSelected(event) {
+    setSelected(event.target.value)
+  }
   const types = [
     'Network',
     'CCTV',
@@ -13,23 +17,24 @@ function CreateTask() {
     'Computer',
     'Software'
   ]
-  const status =['Urgent','Pending','Approve','Done']
+  const status = ['Urgent', 'Pending', 'Approve', 'Done']
   const assigns = [
-    {name:'MrTech',id:1},
-    {name:'MrRobot',id:2},
-    {name:'HiTech',id:3},
-    {name:'IT',id:4}
+    { name: 'MrTech', id: 1 },
+    { name: 'MrRobot', id: 2 },
+    { name: 'HiTech', id: 3 },
+    { name: 'IT', id: 4 }
   ]
   return (
     <Modal title='/task'>
-      <Form action="/create-task" method='post' >
+      <Form method='post' >
 
         <div className='inline'>
           <div className='input-control'>
             <label className='label' htmlFor="name">Category</label>
-            <select name="type" id="type" required>
-              <option value="" disabled selected hidden>Choose Category</option>
-              {types.map((type,index)=>(
+            
+            <select defaultValue="" name="type"  id="type" required>
+              <option value="" disabled hidden>Choose Category</option>
+              {types.map((type, index) => (
                 <option key={index} value={type}>{type}</option>
               ))}
             </select>
@@ -37,9 +42,10 @@ function CreateTask() {
 
           <div className='input-control'>
             <label className='label' htmlFor="type">Status</label>
-            <select name="status" id="type" required>
-              <option value="" disabled selected hidden>Choose Status</option>
-              {status.map((state,index)=>(
+
+            <select name="status" id="type" defaultValue="" required>
+              <option value="" disabled hidden>Choose Status</option>
+              {status.map((state, index) => (
                 <option key={index} value={state}>{state}</option>
               ))}
             </select>
@@ -55,9 +61,10 @@ function CreateTask() {
         <div className='inline'>
           <div className='input-control'>
             <label className='label' htmlFor="assign">Assigned</label>
-            <select name="assign" id="type" required>
-              <option value="" disabled selected hidden>Choose Assign</option>
-              {assigns.map((assign,index)=>(
+
+            <select defaultValue='' name="assign" id="type" required>
+              <option value="" disabled  hidden>Choose Assign</option>
+              {assigns.map((assign, index) => (
                 <option key={index} value={assign.name}>{assign.name}</option>
               ))}
             </select>
@@ -65,9 +72,10 @@ function CreateTask() {
 
           <div className='input-control'>
             <label className='label' htmlFor="Assigned">OB</label>
-            <select name="ob" id="type" value='ob' required>
-              <option value="" disabled selected hidden>Choose OB</option>
-              {[...Array(30).keys()].map((n,index)=>(
+
+            <select defaultValue='' name="ob" id="type" onChange={handleSelected} required>
+              <option value="" disabled hidden>Choose OB</option>
+              {[...Array(30).keys()].map((n, index) => (
                 <option key={index} value={n}>{n}</option>
               ))}
             </select>
@@ -85,21 +93,21 @@ function CreateTask() {
 }
 
 export default CreateTask
-export async function action({request}){
-const form = await request.formData()
+export async function action({ request }) {
+  const form = await request.formData()
 
-const task ={    
-  name: form.get('name'),
-  type: form.get('type'),
-  status: form.get('status'),
-  assign: form.get('assign'),
-  ob: form.get('ob')  
-}
-const response = await client.post('/tasks', task)
-if(response.status === 200){
-  return redirect('/task')
-}
-console.log(response)
+  const task = {
+    name: form.get('name'),
+    type: form.get('type'),
+    status: form.get('status'),
+    assign: form.get('assign'),
+    ob: form.get('ob')
+  }
+  const response = await client.post('/tasks', task)
+  if (response.status === 200) {
+    return redirect('/task')
+  }
+ 
 
 
 }

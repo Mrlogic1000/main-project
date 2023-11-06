@@ -12,10 +12,9 @@ router.get('/',async (req,res)=>{
 
 router.post('/', async(req,res)=>{
 try {
-    const {report,reporter,status,area,comments} = req.body;
-    console.log(report)
-    let sql = `insert into reports(report,reporter,status,area,comments,date,image) values(?,?,?,?,?,?,?)`;
-    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(),null])
+    const {report,reporter,status,area,comments,color} = req.body;    
+    let sql = `insert into reports(report,reporter,status,area,comments,date,image,color) values(?,?,?,?,?,?,?,?)`;
+    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(),null,color])
    if(result.affectedRows>0) return res.json("The object was updated")
 
 } catch (error) {
@@ -24,7 +23,7 @@ try {
 })
 router.put('/', async(req,res)=>{
 try {
-    const {id,report,reporter,status,area,comments} = req.body;
+    const {id,report,reporter,status,area,comments,color} = req.body;
     let sql = `UPDATE reports SET 
     report = ?,
     reporter =?,
@@ -32,9 +31,10 @@ try {
     area = ?,
     comments = ?,
     date = ?,
-    image = ?
+    image = ?,
+    color=?
     WHERE id =?`;
-    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(), null, id])
+    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(), null,color, id])
     if(result.affectedRows>0) return res.json("The Report updated")
 
 } catch (error) {
