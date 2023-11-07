@@ -7,6 +7,7 @@ const User = require("./router/auth")
 const Task = require('./router/task')
 const Profile = require('./router/profile')
 const Report = require('./router/report')
+const Deivce = require('./router/device')
 
 
 app.use(express.json())
@@ -22,6 +23,7 @@ app.use('/api', User)
 app.use('/api/tasks', Task)
 app.use('/api/reports', Report)
 app.use('/api/profile', Profile)
+app.use('/api/devices', Deivce)
 
 
 

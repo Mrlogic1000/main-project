@@ -465,21 +465,21 @@ tr:nth-child(even) {
 
 }
 
-.form-control {
+.profile .form-control {
   display: flex;
   flex-direction: column;
   /* margin-top: 20px; */
 }
 
-.form-control label {
-  padding: 20px 0;
+.profile .form-control label {
+  padding: .2em 0;
 }
 
-.form-control:first-child {
+.profile .form-control:first-child {
   padding-top: 0;
 }
 
-.form-control input {
+.profile .form-control input {
   border: 0;
   border-bottom: 1px solid var(--borde-color);
   /* padding: 5px 0; */
