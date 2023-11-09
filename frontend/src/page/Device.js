@@ -66,5 +66,6 @@ export default Device
 
 export async function loader(){
   const data = await client.get('/devices')
+  console.log(data)
  return data.data
 }

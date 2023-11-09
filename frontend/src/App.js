@@ -25,7 +25,7 @@ import Users, { loader as UserLoader } from './page/Users';
 import DeviceLayout from './components/DeviceLayout';
 import Device, { loader as DeviceLoader } from './page/Device';
 import CreateDevice,{action as DeviceAction} from './page/CreateDevice';
-import EditDevice,{loader as EditDeviceLoader} from './page/EditDevice';
+import EditDevice,{loader as EditDeviceLoader, action as EditDeviceAction} from './page/EditDevice';
 
 import Department from './page/Department';
 
@@ -53,7 +53,7 @@ function App() {
 
         <Route path='/device' element={<DeviceLayout />} >
           <Route index element={<Device />} loader={DeviceLoader} />
-          <Route path=':id' element={<EditDevice/>} loader={EditDeviceLoader} />
+          <Route path=':id' element={<EditDevice/>} loader={EditDeviceLoader} action={EditDeviceAction} />
           <Route path='create-device' element={<CreateDevice />} action={DeviceAction} />
         </Route>
 

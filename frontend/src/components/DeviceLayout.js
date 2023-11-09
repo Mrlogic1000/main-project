@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 export default function DeviceLayout() {
   return (
     <>
-    <MiniHeader name='Report' page='/report' />           
+    <MiniHeader name='Device' page='/report' />           
         <Outlet />
 
     

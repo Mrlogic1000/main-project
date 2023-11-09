@@ -16,7 +16,7 @@ function CreateDevice() {
         'Software'
       ]
     return (
-        <Modal title='/report'>
+        <Modal title='/device'>
         <Form method='post' >
   
         <div className='inline'>
