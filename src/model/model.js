@@ -58,5 +58,16 @@ module.exports = class Model{
             })
         })
     }
+
+    getUser(username,password){
+        let CThis = this;
+        return new Promise((myResolve,myReject)=>{
+            db.query('SELECT * FROM ?? WHERE username = ? AND password = ?',[CThis.table,username,password],(error,result)=>{
+                if(error) throw error                
+                myResolve(result[0])
+            })
+
+        })
+    }
     
 }

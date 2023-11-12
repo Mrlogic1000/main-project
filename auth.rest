@@ -1,16 +1,18 @@
 
-@baseURL = http://localhost:3000/api
+@baseURL = http://localhost:4000/api
 @username = "mrtec6"
 @password = "12abcd"
 
 ###
 # @name postLogin
-POST {{baseURL}}/login
+POST {{baseURL}}/signup
 content-type: application/json
 
 {
-    "username":"mrtec6",
-    "password":"12abcd"
+    "username":"Hitech",
+    "password":"12abcd",
+    "code":1234,
+    "image":"mm284775858"
    
 }
 

@@ -10,7 +10,7 @@ import client from '../HTTPRequest'
 
 function EditTask() {
   const data = useLoaderData()
-  const [task, setTAsk] = useState(data[0])
+  const [task, setTAsk] = useState(data)
   // console.log(data)
 
   const handleSelected = (e)=>{
@@ -42,12 +42,12 @@ function EditTask() {
         <div className='input-control'>
           <label className='label' htmlFor="type">Category</label>
 
-          <select defaultValue={data[0]?.type} name="type" id="type" onChange={handleSelected} required>            
+          <select defaultValue={data?.type} name="type" id="type" onChange={handleSelected} required>            
             {types.map((type,index)=>(
               <option  key={index} value={type}>{type}</option>
             ))}
           </select>
-          <input hidden name='id' onChange={handleSelected} value={data[0].id} type="number" placeholder='Title' />
+          <input hidden name='id' onChange={handleSelected} value={data.id} type="number" placeholder='Title' />
 
         </div>     
 
@@ -58,7 +58,7 @@ function EditTask() {
         <div className='input-control'>
           <label className='label' htmlFor="status">Status</label>
 
-          <select defaultValue={data[0]?.status} name="status" id="status" onChange={handleSelected} required>
+          <select defaultValue={data?.status} name="status" id="status" onChange={handleSelected} required>
             {status.map((state,index)=>(
               <option key={index} value={state}>{state}</option>
             ))}
@@ -69,14 +69,14 @@ function EditTask() {
 
       <div className='inline'>
         <label className='label' htmlFor="title">Title</label>
-        <input name='name' id='title' onChange={handleSelected} defaultValue={data[0].name} type="text" placeholder='Title' />
+        <input name='name' id='title' onChange={handleSelected} defaultValue={data.name} type="text" placeholder='Title' />
       </div>
 
       <div className='inline'>
         <div className='input-control'>
           <label className='label' htmlFor="assign">Assigned</label>
 
-          <select defaultValue={data[0]?.assign} name="assign" onChange={handleSelected} id="assign" required>           
+          <select defaultValue={data?.assign} name="assign" onChange={handleSelected} id="assign" required>           
             {assigns.map((assign,index)=>(
               <option  key={index} value={assign.name}>{assign.name}</option>
             ))}
@@ -91,7 +91,7 @@ function EditTask() {
 
         <div className='input-control'>
           <label className='label' htmlFor="ob">OB</label>
-          <select defaultValue={data[0]?.ob} name="ob" onChange={handleSelected} id="ob" required> 
+          <select defaultValue={data?.ob} name="ob" onChange={handleSelected} id="ob" required> 
             {[...Array(30).keys()].map((n,index)=>(
               <option  key={index} value={n}>{n}</option>
             ))}

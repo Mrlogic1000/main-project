@@ -9,16 +9,12 @@ Devices = new class DeviceModel extends Model {
 }
 
 
-getDevice = async (req, res) => {
+const getDevice = async (req, res) => {
     const result = await Devices.getAll()
     res.json(result)
 }
 
-
-
-
-
-postDevice = async (req, res) => {
+const postDevice = async (req, res) => {
     try {
         const data = req.body
         const result = await Devices.create(data)
@@ -32,7 +28,7 @@ postDevice = async (req, res) => {
 }
 
 
-deleteDevice = async (req, res) => {
+const deleteDevice = async (req, res) => {
     try {
         const id = req.params.id
         const result = await Devices.delete(id)
@@ -51,14 +47,14 @@ deleteDevice = async (req, res) => {
 }
 
 
-getDeviceById = async (req, res) => {
+const getDeviceById = async (req, res) => {
     const id = req.params.id
     const result = await Devices.find(id)
     res.json(result)
 
 }
 
-putDevice = async (req, res) => {
+const putDevice = async (req, res) => {
     try {
         const { name, device_id, status, installation, description, categories, network_address, mac, id } = req.body
 

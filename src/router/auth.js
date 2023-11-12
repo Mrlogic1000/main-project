@@ -3,33 +3,12 @@ const bcrypt = require("bcrypt")
 const {createToken}= require("../JWT")
 var db = require("../database")
 require('dotenv').config()
+const controller = require('../controller/UserController')
+
 
 const router = express.Router()
 
-router.post('/signup', async(req, res) => {
-  const {username,password,code,image} = req.body
-  
-  try {
-    let sql = `SELECT * FROM users WHERE username = ? or code = ?`;
-  const [result] = await db.promise().query(sql,[username,code])
-  if(result.length > 0){
-    console.log(result)
-    res.status(500).json("username or code is already taken") 
-    return
-  }else{
-    bcrypt.hash(password,process.env.SALT, (err,hash)=>{
-      if(err) console.log(err)
-      let sql = `INSERT INTO users(username,password,code,image) 
-      values('${username}','${hash}','${code}','${image}')`
-      db.promise().query(sql)
-      res.json({ messag: 'created successfully' })
-     })    
-  }
-  } catch (err) {
-    console.log(err)
-  }
- 
-})
+router.post('/signup', controller.signupUser)
 
 // ********************************Login*************************************************
 

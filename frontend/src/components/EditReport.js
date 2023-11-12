@@ -28,11 +28,11 @@ function EditReport() {
             <Form method='post' >
 
                 <div className='inline'>
-                    <input hidden defaultValue={data[0]?.id} name='id' type="number" placeholder='Report' />
+                    <input hidden defaultValue={data?.id} name='id' type="number" placeholder='Report' />
 
                     <div className="input-control">
                         <label className='label' htmlFor="report">Report</label>
-                        <select defaultValue={data[0]?.report} name="report" id="report" required>
+                        <select defaultValue={data?.report} name="report" id="report" required>
                             {categories.map((category, index) => (
                                 <option key={index} value={category}>{category}</option>
                             ))}
@@ -44,7 +44,7 @@ function EditReport() {
                 <div className='inline'>
                     <div className='input-control'>
                         <label className='label' htmlFor="reporter">Reporter</label>
-                        <select defaultValue={data[0]?.reporter} name="reporter" id="reporter" required>
+                        <select defaultValue={data?.reporter} name="reporter" id="reporter" required>
                             {reporters.map((reporter, index) => (
                                 <option key={index} value={reporter.name}>{reporter.name}</option>
                             ))}
@@ -56,7 +56,7 @@ function EditReport() {
                     <div className='input-control'>
                         <label className='label' htmlFor="area">Area</label>
 
-                        <select defaultValue={data[0]?.area} name="area" id="area" required>
+                        <select defaultValue={data?.area} name="area" id="area" required>
                             {areas.map((area, index) => (
                                 <option key={index} value={area}>{area}</option>
                             ))}
@@ -69,7 +69,7 @@ function EditReport() {
                     <div className='input-control'>
                         <label className='label' htmlFor="status">Status</label>
 
-                        <select name="status" id="status" defaultValue={data[0]?.status} required>
+                        <select name="status" id="status" defaultValue={data?.status} required>
                             {status.map((state, index) => (
                                 <option key={index} value={state}>{state}</option>
                             ))}
@@ -86,7 +86,7 @@ function EditReport() {
                     <div className='input-control'>
                         <label className='label' htmlFor="comments">Comments</label>
 
-                        <textarea defaultValue={data[0]?.comments} name="comments" id="comments"></textarea>
+                        <textarea defaultValue={data?.comments} name="comments" id="comments"></textarea>
                     </div>
 
                 </div>

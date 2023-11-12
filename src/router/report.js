@@ -1,59 +1,20 @@
 const express = require('express')
 const db = require('../database')
+const controller = require("../controller/ReportController")
+
+
 
 const router = express.Router()
 
 
-router.get('/',async (req,res)=>{
-    const [result] = await db.promise().query('SELECT * FROM reports')
-    res.json(result)
+router.get('/', controller.getReport)
 
-})
+router.post('/', controller.postReport)
 
-router.post('/', async(req,res)=>{
-try {
-    const {report,reporter,status,area,comments,color} = req.body;    
-    let sql = `insert into reports(report,reporter,status,area,comments,date,image,color) values(?,?,?,?,?,?,?,?)`;
-    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(),null,color])
-   if(result.affectedRows>0) return res.json("The object was updated")
+router.put('/', controller.updateReport)
 
-} catch (error) {
-    console.log(error)
-}
-})
-router.put('/', async(req,res)=>{
-try {
-    const {id,report,reporter,status,area,comments,color} = req.body;
-    let sql = `UPDATE reports SET 
-    report = ?,
-    reporter =?,
-    status = ?,
-    area = ?,
-    comments = ?,
-    date = ?,
-    image = ?,
-    color=?
-    WHERE id =?`;
-    const [result] = await db.promise().execute(sql,[report,reporter,status,area,comments,new Date(), null,color, id])
-    if(result.affectedRows>0) return res.json("The Report updated")
-
-} catch (error) {
-    console.log(error)
-}
-})
-
-router.get('/:id',async (req,res)=>{
-    const id = req.params.id
-    const [result] = await db.promise().query('SELECT * FROM reports WHERE id=?',[id])
-    res.json(result)
-
-})
-router.delete('/:id',async (req,res)=>{
-    const id = req.params.id
-    const [result] = await db.promise().query('DELETE FROM reports WHERE id=?',[id])
-    res.json(result)
-
-})
+router.get('/:id', controller.findReport)
+router.delete('/:id', controller.deleteReport)
 
 
 module.exports = router
