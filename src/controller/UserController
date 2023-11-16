@@ -1,0 +1,90 @@
+const db = require('../database')
+const Model = require('../model/model')
+
+
+Users = new class DeviceModel extends Model {
+    constructor() {
+        super('users')
+    }
+}
+
+
+const getUsers = async (req, res) => {
+    const result = await Users.getAll()
+    console.log(result)
+    res.json(result)
+}
+
+const postUser = async (req, res) => {
+    try {
+        const data = req.body
+        const result = await Users.create(data)
+        if (result > 0) {
+            res.status(200).json("All data saved successfully")
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+const deleteUser = async (req, res) => {
+    try {
+        const id = req.params.id
+        const result = await Users.delete(id)
+        if (result > 0) {
+            res.json("Task was deleted successfully")
+        } else {
+            res.json("No Item with the idenetity in the databases")
+
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
+
+
+const getUserById = async (req, res) => {
+    const id = req.params.id
+    const result = await Users.find(id)
+    res.json(result)
+
+}
+
+const putUser = async (req, res) => {
+    try {
+        const { username,password,email,phoneNumber,role,id } = req.body
+
+        const data = { username,password,email,phoneNumber,role}
+        const result = await Users.update(id, data)
+        if (result > 0) {
+            res.status(200).json("The data edited successfully")
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+module.exports = {
+    getUsers,
+    postUser,
+    deleteUser,
+    getUserById,
+    putUser,
+
+
+
+
+
+
+
+
+
+
+
+
+}

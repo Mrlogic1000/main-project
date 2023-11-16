@@ -8,12 +8,12 @@ import AppLink from './AppLink'
 function SideBar() {
     const menus = [
         {icon:<MdOutlineDashboard/>, title:'Dashboard', active:true, route:'/'},
-        {icon:<FaUsers/>, title:'Users', active:false, route:'/users'},
-        {icon:<FaTasks/>, title:'Task', active:false, route:'/task'},
-        {icon:<MdOutlineReportOff/>, title:'Report', active:false, route:'/report'},
-        {icon:<FaRegUser/>, title:'Profile', active:false, route:'/profile'},
-        {icon:<MdDevicesOther/>, title:'Devices', active:false, route:'/device'},
-        {icon:<FcDepartment/>, title:'Department', active:false, route:'/department'},
+        {icon:<FaUsers/>, title:'Users', active:false, route:'users'},
+        {icon:<FaTasks/>, title:'Task', active:false, route:'task'},
+        {icon:<MdOutlineReportOff/>, title:'Report', active:false, route:'report'},
+        {icon:<FaRegUser/>, title:'Profile', active:false, route:'profile'},
+        {icon:<MdDevicesOther/>, title:'Devices', active:false, route:'device'},
+        {icon:<FcDepartment/>, title:'Department', active:false, route:'department'},
     ]
   return (
     <div className="sidenav">

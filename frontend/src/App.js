@@ -19,7 +19,7 @@ import Report, { loader as ReportLoader } from './page/Report';
 import EditReport, { loader as ReportIdLoader, action as EditReportAction } from './components/EditReport';
 import CreateReport, { action as ReportAction } from './page/CreateReport';
 
-import Profile from './page/Profile';
+import Profile,{loader as ProfileLoader, action as ProfileAction} from './page/Profile';
 import Users, { loader as UserLoader } from './page/Users';
 
 import DeviceLayout from './components/DeviceLayout';
@@ -31,27 +31,36 @@ import Department from './page/Department';
 
 // import TaskById, { } from './page/TaskById';
 import Error from './page/Error';
+import Login,{action as LoginAction} from './page/Login';
+import AppLayout from './components/AppLayout';
+import UserLayout from './components/UserLayout';
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<RootLayout />} >
-        <Route index element={<Home />} />
-        <Route path='/users' element={<Users />} loader={UserLoader} />
+      <Route path='/' element={<AppLayout/>}>
+        <Route index path='/auth' element={<Login/>} action={LoginAction}>
 
-        <Route path='/task' element={<TaskLayout />}  >
+        </Route>
+        
+      <Route path='/' element={<RootLayout />} >
+        
+        <Route index element={<Home/>} />
+        {/* <Route path='auth' element={<Users />} loader={UserLoader} /> */}
+
+        <Route path='task' element={<TaskLayout />}  >
           <Route index element={<Task />} loader={TaskLoader} />
           <Route path=':id' element={<EditTask />} loader={TaskIdLoader} action={EditAction} />
           <Route path='create-task' element={<CreateTask />} action={TaskAction} />
         </Route>
 
-        <Route path='/report' element={<ReportLayout />}>
+        <Route path='report' element={<ReportLayout />}>
           <Route index element={<Report />} loader={ReportLoader} />
           <Route path=':id' element={<EditReport />} loader={ReportIdLoader} action={EditReportAction} />
           <Route path='create-report' element={<CreateReport />} action={ReportAction} />
         </Route>
 
 
-        <Route path='/device' element={<DeviceLayout />} >
+        <Route path='device' element={<DeviceLayout />} >
           <Route index element={<Device />} loader={DeviceLoader} />
           <Route path=':id' element={<EditDevice/>} loader={EditDeviceLoader} action={EditDeviceAction} />
           <Route path='create-device' element={<CreateDevice />} action={DeviceAction} />
@@ -59,9 +68,14 @@ function App() {
 
         {/* <Route path='/edit-task' element={<EditTaskTask />} /> */}
 
+        <Route path='profile' element={<Profile />} />
+        <Route path='users' element={<UserLayout/>} >
+        <Route index element={<Users/>} loader={UserLoader} />
+        <Route path=':id' element={<Profile />} loader={ProfileLoader} action={ProfileAction}/>
 
-        <Route path='/profile' element={<Profile />} />
-        <Route path='/department' element={<Department />} />
+          </Route>
+        <Route path='department' element={<Department />} />
+      </Route>
       </Route>
     )
   )

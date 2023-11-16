@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt")
 const {createToken}= require("../JWT")
 var db = require("../database")
 require('dotenv').config()
-const controller = require('../controller/UserController')
+const controller = require('../controller/AuthController')
 
 
 const router = express.Router()

@@ -9,8 +9,7 @@ Reports = new class ReportModel extends Model {
 }
 
 const getReport = async (req, res) => {
-    const result = await Reports.getAll()
-    console.log(result)
+    const result = await Reports.getAll()    
     res.json(result)
 }
 
