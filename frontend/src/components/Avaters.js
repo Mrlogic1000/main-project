@@ -1,16 +1,14 @@
 import React from 'react'
 import profile1 from '../images/profile1.jpg'
+import { StyleAvarter } from './style/Avarter.style'
 
 function Avater() {
   return (
-    <div className='avater-box'>
-        <div className="circular-avarter">
-            <img src={profile1}  alt="" />       
-            
-        </div>
-        <strong className='title'>Stephen</strong>
+    <StyleAvarter>        
+        <img src={profile1}  alt="" />       
+        <span className='title'>Stephen</span>
         
-    </div>
+    </StyleAvarter>
   )
 }
 

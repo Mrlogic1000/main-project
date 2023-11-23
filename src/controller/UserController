@@ -11,11 +11,11 @@ Users = new class DeviceModel extends Model {
 
 const getUsers = async (req, res) => {
     const result = await Users.getAll()
-    console.log(result)
+    // console.log(result)
     res.json(result)
 }
 
-const postUser = async (req, res) => {
+const createUser = async (req, res) => {
     try {
         const data = req.body
         const result = await Users.create(data)
@@ -55,11 +55,11 @@ const getUserById = async (req, res) => {
 
 }
 
-const putUser = async (req, res) => {
+const updateUser = async (req, res) => {
     try {
-        const { username,password,email,phoneNumber,role,id } = req.body
+        const { username, password, email, phoneNumber, role, id } = req.body
 
-        const data = { username,password,email,phoneNumber,role}
+        const data = { username, password, email, phoneNumber, role }
         const result = await Users.update(id, data)
         if (result > 0) {
             res.status(200).json("The data edited successfully")
@@ -69,12 +69,27 @@ const putUser = async (req, res) => {
         console.log(error)
     }
 }
+const updateImage = async (req, res) => {
+    try {
+        const id = req.params.id            
+        const image = await req.file.buffer.toString('base64')        
+        const result = await Users.update(id, {image:image})
+        if (result > 0) {
+            res.status(200).json("The data edited successfully")
+        }
+
+
+    } catch (error) {
+        console.log(error)
+    }
+}
 module.exports = {
     getUsers,
-    postUser,
+    createUser,
     deleteUser,
     getUserById,
-    putUser,
+    updateUser,
+    updateImage
 
 
 

@@ -1,24 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MiniHeader from '../components/MiniHeader'
 import profile from '../images/profile1.jpg'
 import client from '../HTTPRequest'
 import { Form, redirect, useLoaderData } from 'react-router-dom'
 // import { useParams } from 'react-router-dom'
 
-
 function Profile() {
-    const user = useLoaderData()   
+    const [file, setFile] = useState()
+    const user = useLoaderData()
+    console.log(user.image.data)
+
+    const upLoadImage = async (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+        formData.append('image', e.target.files[0])       
+        const result = await client.put(`/users/${user.id}`, formData)
+      setFile(result.data)
+       
+
+    }
     return (
 
         <>
-             <MiniHeader name='Profile' page='/profile'/>
+            <MiniHeader name='Profile' page='/profile' />
 
             <div className="profile">
                 <div className="profile-data">
 
                     <div className="profile-image">
-                        <img src={profile} alt="" />
                         <h4 className='profile-title'>{user.username}</h4>
+
+                        <label htmlFor="update"><img src={`data:image/png;base64,${user.image.data}`} alt="" /></label>
+                        <input hidden onChange={upLoadImage} type="file" accept='image/jpeg image/png image/jpg' id='update' />
+                        {/* <button onClick={upLoadImage}>Upload</button> */}
 
                     </div>
 
@@ -60,28 +75,28 @@ function Profile() {
 
 export default Profile
 
-export async function loader({params}){
+export async function loader({ params }) {
     const id = params.id
-    const result = await client.get(`/users/${id}`)    
+    const result = await client.get(`/users/${id}`)
     return result.data
 }
 
 
-export async function action({request}){
+export async function action({ request }) {
 
     const form = await request.formData()
     const user = {
-        id:form.get('id'),
-        username:form.get('username'),
-        password:form.get('password'),
-        code:form.get('code'),
-        email:form.get('email'),
-        phoneNumber:form.get('phoneNumber'),
-        role:form.get('role')
+        id: form.get('id'),
+        username: form.get('username'),
+        password: form.get('password'),
+        code: form.get('code'),
+        email: form.get('email'),
+        phoneNumber: form.get('phoneNumber'),
+        role: form.get('role')
     }
     console.log(user)
 
     const result = await client.put(`/users`, user)
-    if(result.status === 200) return redirect('/users')
+    if (result.status === 200) return redirect('/users')
 
 }

@@ -1,4 +1,7 @@
 import './App.css';
+import { ThemeProvider } from 'styled-components';
+import theme from './components/style/Theme';
+import GolbalStyle from './components/style/Global';
 
 import {
   createBrowserRouter,
@@ -35,7 +38,7 @@ import Login,{action as LoginAction} from './page/Login';
 import AppLayout from './components/AppLayout';
 import UserLayout from './components/UserLayout';
 function App() {
-  const router = createBrowserRouter(
+  const router = createBrowserRouter(   
     createRoutesFromElements(
       <Route path='/' element={<AppLayout/>}>
         <Route index path='/auth' element={<Login/>} action={LoginAction}>
@@ -80,10 +83,13 @@ function App() {
     )
   )
   return (
+     <ThemeProvider theme={theme}>
     <>
+    <GolbalStyle/>
       <RouterProvider router={router} />
 
     </>
+      </ThemeProvider>
   );
 }
 

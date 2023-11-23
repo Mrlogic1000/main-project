@@ -9,6 +9,7 @@ function SideBar() {
     const menus = [
         {icon:<MdOutlineDashboard/>, title:'Dashboard', active:true, route:'/'},
         {icon:<FaUsers/>, title:'Users', active:false, route:'users'},
+        // {icon:<FaUsers/>, title:'My Account', active:false,},
         {icon:<FaTasks/>, title:'Task', active:false, route:'task'},
         {icon:<MdOutlineReportOff/>, title:'Report', active:false, route:'report'},
         {icon:<FaRegUser/>, title:'Profile', active:false, route:'profile'},
@@ -16,14 +17,7 @@ function SideBar() {
         {icon:<FcDepartment/>, title:'Department', active:false, route:'department'},
     ]
   return (
-    <div className="sidenav">
-        <div className="sidenav-header">
-            <div className="app-logo">
-                <span className='logo'>M</span>
-                <span><strong>CMS</strong>admin</span>
-            </div>
-
-        </div>
+    <div className="sidenav">       
        {menus.map((menu,index)=>(
          <AppLink key={index} icon={menu.icon} route={menu.route} title={menu.title} active={menu.active}/>
        ))}

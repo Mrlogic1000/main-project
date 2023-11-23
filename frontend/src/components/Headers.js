@@ -1,13 +1,13 @@
 import React from 'react'
 import Avater from './Avaters';
+import { StyleHeader,Logo } from './style/Header.style';
 function Headers() {
   return (
-    <header className="app-header">
-    <div className="app-logo">
-      
-    </div>
-    <div><Avater/></div>
-  </header>
+    <StyleHeader>
+    <Logo> <span className='logo'>M</span>
+                <span><strong>CMS</strong>admin</span> </Logo>
+    <Avater/>
+  </StyleHeader>
   )
 }
 

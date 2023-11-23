@@ -7,10 +7,10 @@ function RootLayout() {
   return (
     <div className="app">
 
-    <div className='app-body'>
+    <div>
 
-      <SideBar/>
       <Headers/>
+      <SideBar/>
       <div className="content">
          <Outlet/>
 
