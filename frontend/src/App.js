@@ -37,6 +37,7 @@ import Error from './page/Error';
 import Login,{action as LoginAction} from './page/Login';
 import AppLayout from './components/AppLayout';
 import UserLayout from './components/UserLayout';
+import CreateUser,{action as UserAction} from './page/CreateUser';
 function App() {
   const router = createBrowserRouter(   
     createRoutesFromElements(
@@ -74,6 +75,7 @@ function App() {
         <Route path='profile' element={<Profile />} />
         <Route path='users' element={<UserLayout/>} >
         <Route index element={<Users/>} loader={UserLoader} />
+        <Route path='create-user' element={<CreateUser/> } action={UserAction}/>
         <Route path=':id' element={<Profile />} loader={ProfileLoader} action={ProfileAction}/>
 
           </Route>

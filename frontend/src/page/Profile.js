@@ -8,7 +8,7 @@ import { Form, redirect, useLoaderData } from 'react-router-dom'
 function Profile() {
     const [file, setFile] = useState()
     const user = useLoaderData()
-    console.log(user.image.data)
+    console.log(user)
 
     const upLoadImage = async (e) => {
         e.preventDefault()
@@ -31,7 +31,7 @@ function Profile() {
                     <div className="profile-image">
                         <h4 className='profile-title'>{user.username}</h4>
 
-                        <label htmlFor="update"><img src={`data:image/png;base64,${user.image.data}`} alt="" /></label>
+                        <label htmlFor="update"><img src={`http://localhost:4000/${user.image}`} alt="" /></label>
                         <input hidden onChange={upLoadImage} type="file" accept='image/jpeg image/png image/jpg' id='update' />
                         {/* <button onClick={upLoadImage}>Upload</button> */}
 
@@ -42,26 +42,26 @@ function Profile() {
                     <Form method='post'>
                         <div className='form-control'>
                             <label htmlFor="Full Name">Full Name</label>
-                            <input type="text" name='username' defaultValue={user.username} placeholder='Adelakun Muheez' />
+                            <input type="text" name='username' defaultValue={user?.username} placeholder='Adelakun Muheez' />
                         </div>
-                        <input hidden type="number" name='id' defaultValue={user.id} placeholder='Adelakun Muheez' />
+                        <input hidden type="number" name='id' defaultValue={user?.id} placeholder='Adelakun Muheez' />
 
 
                         <div className='form-control'>
                             <label htmlFor="Email">Email</label>
-                            <input defaultValue={user.email} name='email' type="email" placeholder='Mrlogic@gmail.com' />
+                            <input defaultValue={user?.email} name='email' type="email" placeholder='Mrlogic@gmail.com' />
                         </div>
                         <div className='form-control'>
                             <label htmlFor="password">Password</label>
-                            <input defaultValue={user.password} name='password' type="password" placeholder='........' />
+                            <input defaultValue={user?.password} name='password' type="password" placeholder='........' />
                         </div>
                         <div className='form-control'>
                             <label htmlFor="phone">Phone</label>
-                            <input defaultValue={user.phoneNumber} name='phoneNumber' type="text" placeholder='07069344331' />
+                            <input defaultValue={user?.phoneNumber} name='phoneNumber' type="text" placeholder='07069344331' />
                         </div>
                         <div className='form-control'>
                             <label htmlFor="phone">Role</label>
-                            <input defaultValue={user.role} name='role' type="text" placeholder='07069344331' />
+                            <input defaultValue={user?.role} name='role' type="text" placeholder='07069344331' />
                         </div>
                         <button className='btn'>Update</button>
                     </Form>

@@ -16,17 +16,28 @@ router.get('/', controller.getUsers)
 router.post('/', controller.createUser)
 
 
-// const storage = multer.diskStorage({
-//     destination:((req,file,cb)=>{
-//         cb(null,path.join(__dirname,''))
-//     }),
-//     filename:((req,file,cb)=>{
-//         cb(null,file.fieldname + '_' + Date.now())
-//     })
-// })
+const storage = multer.diskStorage({
+    destination:((req,file,cb)=>{
+        cb(null,'./images')
+    }),
+    filename:((req,file,cb)=>{
+        cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    })
+})
 
 
-const upload = multer({storage:multer.memoryStorage()})
+const upload = multer({
+    storage:storage,
+    limits: '1000000',
+    fileFilter:(req,file,cb)=>{
+        const fileTypes = /jpeg|jpg|png|gif/
+        const mimeType = fileTypes.test(file.mimetype)
+        const extname = fileTypes.test(path.extname)
+        if(mimeType && extname) return cb(null,true)
+        return cb('Upload the proper file')
+
+    }
+})
 
 router.put('/:id', upload.single('image'),controller.updateImage)
 

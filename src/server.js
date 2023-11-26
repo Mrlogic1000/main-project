@@ -20,6 +20,7 @@ app.use((req,res,next)=>{
 })
 
 // Router
+app.use('/images',express.static('./images'))
 app.use('/api', Auth)
 app.use('/api/tasks', Task)
 app.use('/api/reports', Report)

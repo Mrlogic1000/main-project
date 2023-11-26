@@ -72,11 +72,12 @@ const updateUser = async (req, res) => {
 const updateImage = async (req, res) => {
     try {
         const id = req.params.id            
-        const image = await req.file.buffer.toString('base64')        
+        const image = req.file.path        
         const result = await Users.update(id, {image:image})
         if (result > 0) {
             res.status(200).json("The data edited successfully")
         }
+        
 
 
     } catch (error) {
