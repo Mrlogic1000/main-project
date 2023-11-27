@@ -1,43 +1,86 @@
 import React, { useState } from 'react'
 import MiniHeader from '../components/MiniHeader'
-import profile from '../images/profile1.jpg'
+// import profile from '../images/profile1.jpg'
+import styled from 'styled-components'
 import client from '../HTTPRequest'
-import { Form, redirect, useLoaderData } from 'react-router-dom'
+import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom'
+import { StyleAvarterWithIcon, StyleIcon } from '../components/style/Avarter.style'
+import { StyleCard } from '../components/style/Cards'
+import { Absoulute } from '../components/style/Position.style'
+import { MdDelete } from "react-icons/md";
+import { FaCamera } from "react-icons/fa";
+import { ImCheckmark } from "react-icons/im"
+
 // import { useParams } from 'react-router-dom'
 
 function Profile() {
     const [file, setFile] = useState()
+    const [image, setImage] = useState(null)
     const user = useLoaderData()
+    const navigate = useNavigate()
     console.log(user)
 
     const upLoadImage = async (e) => {
         e.preventDefault()
-
         const formData = new FormData()
-        formData.append('image', e.target.files[0])       
+        formData.append('image', image)
         const result = await client.put(`/users/${user.id}`, formData)
-      setFile(result.data)
-       
+        navigate(`/users/${user.id}`)
+
 
     }
+    const ProfileImageStyle = styled.div`
+    
+    `
     return (
 
         <>
             <MiniHeader name='Profile' page='/profile' />
 
             <div className="profile">
-                <div className="profile-data">
+                <StyleCard width={'350px'}>
 
-                    <div className="profile-image">
-                        <h4 className='profile-title'>{user.username}</h4>
 
-                        <label htmlFor="update"><img src={`http://localhost:4000/${user.image}`} alt="" /></label>
-                        <input hidden onChange={upLoadImage} type="file" accept='image/jpeg image/png image/jpg' id='update' />
-                        {/* <button onClick={upLoadImage}>Upload</button> */}
 
-                    </div>
+                    {image ? (<StyleAvarterWithIcon>
+                        <img src={URL.createObjectURL(image)} alt="" />
 
-                </div>
+                        <Absoulute bottom={'3.5em'} right={'3em'}>
+
+                            <StyleIcon onClick={upLoadImage} size={'24px'} color={'white'} bg={'rgb(32,156,238)'} >
+                                <ImCheckmark />
+                            </StyleIcon>
+
+                        </Absoulute>
+
+                        <Absoulute bottom={'3.5em'} left={'3em'}>
+
+                            <StyleIcon onClick={()=>{setImage(null)}} size={'22px'} color={'white'} bg={'red'} >
+                                <MdDelete />
+                            </StyleIcon>
+                        </Absoulute>
+
+
+
+                    </StyleAvarterWithIcon>) : (<StyleAvarterWithIcon>
+                        <img src={`http://localhost:4000/${user.image}`} alt="" />
+
+                        <Absoulute bottom={'3.5em'} right={'3em'}>
+                            <label htmlFor="update">
+                                <StyleIcon size={'22px'} color={'white'} bg={'rgb(32,156,238)'} >
+                                    <FaCamera />
+                                </StyleIcon>
+                            </label>
+                        </Absoulute>
+                    </StyleAvarterWithIcon>)
+
+                    }
+
+
+                    <input hidden onChange={(e) => { setImage(e.target.files[0]) }} type="file" accept='image/jpeg image/png image/jpg' id='update' />
+                    {/* <button onClick={upLoadImage}>Upload</button> */}
+
+                </StyleCard>
                 <div className="profile-info">
                     <Form method='post'>
                         <div className='form-control'>
@@ -63,6 +106,7 @@ function Profile() {
                             <label htmlFor="phone">Role</label>
                             <input defaultValue={user?.role} name='role' type="text" placeholder='07069344331' />
                         </div>
+                        
                         <button className='btn'>Update</button>
                     </Form>
                 </div>

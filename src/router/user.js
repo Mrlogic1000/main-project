@@ -32,7 +32,7 @@ const upload = multer({
     fileFilter:(req,file,cb)=>{
         const fileTypes = /jpeg|jpg|png|gif/
         const mimeType = fileTypes.test(file.mimetype)
-        const extname = fileTypes.test(path.extname)
+        const extname = fileTypes.test(path.extname(file.originalname))
         if(mimeType && extname) return cb(null,true)
         return cb('Upload the proper file')
 
