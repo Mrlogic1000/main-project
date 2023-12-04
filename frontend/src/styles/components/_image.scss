@@ -1,0 +1,22 @@
+.profile-image {
+    /* background-color: red; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit:fill;
+    margin: auto;
+  }
+  
+  .profile-title {
+    color: white;
+    margin-bottom: 5px;
+  
+  }

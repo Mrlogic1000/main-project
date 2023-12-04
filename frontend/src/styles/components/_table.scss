@@ -1,0 +1,161 @@
+.tb {
+    width: 95%;
+    // height: 90vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+
+    .table_header {
+        width: 100%;
+        height: 10%;
+        background-color: #fff4;
+        padding: .8rem 1rem;
+    }
+
+    .table_body {
+        width: 95%;
+        min-height: calc(89% - 1.6rem);
+        background-color: #fffb;
+        margin: .8rem auto;
+        border-radius: .6rem;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 0.5rem;
+            background-color: #0004;
+            visibility: hidden;
+
+
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+            visibility: visible;
+
+
+        }
+
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        padding: 1rem;
+
+        td {
+            img {
+                width: 36px;
+                height: 36px;
+                margin-right: 0.5em;
+                border-radius: 50%;
+                vertical-align: middle;
+            }
+        }
+
+        th,
+        td {
+            border-collapse: collapse;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        thead {
+            th {
+                position: sticky;
+                top: 0;
+                left: 0;
+                background-color: #d5d1defe;
+            }
+        }
+
+        tbody {
+            
+            tr{
+                &:nth-child(even) {
+                    background-color: #0000000b;
+                    //  background-color: red; 
+                }
+                &:hover {
+                    background-color: #fff6;
+                }
+            }
+        }
+
+        // -------Table
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//   tbody tr
+// tbody tr
+
+.status {
+    padding: 0.4rem;
+    border-radius: 2rem;
+
+}
+
+
+.status .delever {
+    background-color: #86e49d;
+    color: #006b21;
+
+}
+
+@media(max-width:1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem
+    }
+}
+
+// @media screen and (max-width: 576px) {
+//     header {
+//         width: 100%;
+//         background-color: red;
+//     }
+  
+//     .sidenav {
+//         display: none;
+//     }
+  
+//     .app-header {
+//         margin-left: 0;
+//     }
+  
+    
+  
+//     thead {
+//         display: none;
+//     }
+  
+//     tr {
+//         margin-bottom: 2em;
+//     }
+  
+//     td {
+//         display: block;
+  
+//     }
+  
+//     td:before {
+//         content: attr(data-cell) ":";
+//         padding-right: .5em;
+//     }
+  
+//   }

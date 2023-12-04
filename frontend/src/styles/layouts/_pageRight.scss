@@ -1,0 +1,14 @@
+.pageRight {
+  width: 100%;
+  height: 100%;
+  grid-area: pageRight;
+  // background-color: red;
+  
+  @include Center();
+   background-color: #fff5;
+
+}
+
+.page:hover>.modal-window {
+  display: block;
+}

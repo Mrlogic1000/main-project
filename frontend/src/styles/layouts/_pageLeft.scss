@@ -1,0 +1,43 @@
+
+.pageLeft{      
+  height: 80%;
+  border-radius: 20px;
+  margin: rem;
+  .user{    
+    // background-color: white;
+    @include Center;
+    .avarter{
+      @include Avarter(column)
+    }
+   
+  }
+
+  .navLink{    
+
+    .link {    
+      @include Center;
+      width: 100%;   
+      padding: .5rem 1rem;
+      font-size: 1.1rem;     
+      margin: 1rem 0rem; 
+      font-weight: 600;   
+      text-decoration: none;
+      .icon{
+        font-size: 1.5rem;
+        color: $secondary;
+      }     
+      .title{
+        flex: 1;
+        padding-left: 1rem;
+         
+       
+      }
+    
+    }
+  }
+  
+  
+}
+
+
+

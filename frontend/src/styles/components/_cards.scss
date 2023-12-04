@@ -1,0 +1,39 @@
+.card{
+    @include Shadow();   
+    font-size: 1rem;
+    padding: 1rem;
+    width: 350px;
+    // line-height: 1.5;
+    justify-content: space-around;
+    background-color: white;
+   
+    .card-info{
+        display: flex;
+        flex-direction: column;
+        .contact{
+            font-size: 1rem;
+            font-weight: 600;
+            span{
+                padding: 0 .5rem;
+            }
+
+        }
+        p{
+            font-size: 0.8rem;
+            padding: 0 1.5rem
+        }
+    }
+    .avarter{
+        @include Avarter(column);
+    }
+    .card-info{
+
+    }
+    .action{
+
+    }
+
+    
+
+
+}

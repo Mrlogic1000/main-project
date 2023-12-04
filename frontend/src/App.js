@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { ThemeProvider } from 'styled-components';
 import theme from './components/style/Theme';
 import GolbalStyle from './components/style/Global';
@@ -85,13 +85,17 @@ function App() {
     )
   )
   return (
-     <ThemeProvider theme={theme}>
-    <>
-    <GolbalStyle/>
+    
+   
+   
+      <div >
+      {/* <div className='glass'> */}
       <RouterProvider router={router} />
+      {/* </div> */}
+      </div>
 
-    </>
-      </ThemeProvider>
+   
+     
   );
 }
 

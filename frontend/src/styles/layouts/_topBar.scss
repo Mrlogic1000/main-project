@@ -1,0 +1,49 @@
+.topBar {
+    grid-area: topBar;
+    width: 100%;    
+    display: flex;
+    justify-content: space-between;    
+    color: white;
+    background-color: $primary;
+    .avarter{
+        @include Avarter(row);
+    }
+}
+
+.miniheader {
+    
+    background-color: $white;
+    padding: 10px;   
+    justify-content: space-between;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    background-color: $sidebar-header;
+    width: $sidebar-size;
+    height: 100%;
+    
+    color: $white;
+    gap: 10px;
+    padding: 20px;
+    @include Center;
+}
+
+
+
+.avarterbase {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 0px;
+
+    img {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+

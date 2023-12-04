@@ -35,7 +35,6 @@ function Profile() {
     return (
 
         <>
-            <MiniHeader name='Profile' page='/profile' />
 
             <div className="profile">
                 <StyleCard width={'350px'}>

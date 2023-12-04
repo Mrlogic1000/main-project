@@ -1,0 +1,23 @@
+
+.button {
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    margin: 1rem 0rem;    
+    text-decoration: none; 
+    span{
+      padding: 0 2rem;
+    }
+  
+  }
+
+  .btn{
+    padding: .2rem 2rem;
+    // background-color: red;
+    border: 1px solid $secondary;
+    color: $secondary;
+    margin: 1rem;
+  }
+
+
+  

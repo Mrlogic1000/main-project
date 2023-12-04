@@ -13,14 +13,9 @@ function Tables({children,link,title,heads}) {
       <Link className='link-btn' to={link}>New {title}</Link>
       </div>
       <table className='table'>
-        <thead className='thead'>
-          <tr>
-          {heads.map((head,index)=>(
-             <th key={index}>{head}</th>
-          ))}            
-          </tr>
-        </thead>
-        <tbody className='table-body'>    
+        
+        <tbody className='table-body'>  
+       
         {children}         
           
         </tbody>

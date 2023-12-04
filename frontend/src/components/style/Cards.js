@@ -9,5 +9,4 @@ width: ${({width})=>width};
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-
 `

@@ -1,0 +1,157 @@
+
+
+@import 'styles/variables';
+@import 'styles/util_mixin';
+@import 'styles/components/button';
+@import 'styles/components/cards';
+@import 'styles/components/table';
+@import 'styles/components/form';
+@import 'styles/components/header';
+@import 'styles/components/modal';
+@import 'styles/components/image';
+
+// site layouts
+@import 'styles/layouts/layout';
+@import 'styles/layouts/container';
+@import 'styles/layouts/pages/login';
+
+// body{
+
+  // min-height: 100vh;
+  // display: flex;
+  // background: url(/src/images/image2.jpg) center / cover;
+  // align-items: center;
+  // justify-content: center;
+//   background-color: green;
+// }
+
+
+
+ 
+
+.hide{
+  display: none;
+}
+
+
+/* .status{
+  background-color: red;
+  width: 200px;
+  border-radius: 40px;
+} */
+
+
+
+
+
+a {
+  color: inherit;
+  font-style: inherit;
+}
+
+
+
+
+
+
+
+.avater-box {
+  display: flex;
+  align-items: center;
+  /* background-color: red; */
+  height: $app-header-height;
+  margin-right: 20px;
+
+
+}
+
+.circular-avarter { 
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.circular-avarter img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+
+// .sidenav-header {
+//   height: 60px;
+//   background-color: $sidebar-header;
+// }
+
+// .app-logo {
+//   height: 100%;
+//   display: flex;
+//   color: $white;
+//   gap: 10px;
+//   padding: 20px;
+//   align-items: center;
+//   text-align: center;
+
+// }
+
+
+
+
+
+
+/* Side navigation links */
+
+
+
+
+/* Change color on hover */
+
+
+/* Style the content */
+
+
+
+
+
+
+
+
+
+/* .mini-header {
+  background-color: var(--white);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin-bottom: 20px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

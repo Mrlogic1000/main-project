@@ -1,25 +1,32 @@
 import React from 'react'
-import Headers from './Headers';
-import SideBar from './SideBar';
+import Headers from './TopBar';
+import SideBar from './PageLeft';
 import { Outlet } from 'react-router-dom';
 
 function RootLayout() {
   return (
-    <div className="app">
 
-    <div>
 
-      <Headers/>
-      <SideBar/>
-      <div className="content">
-         <Outlet/>
-
+    <main className='container'>
+      
+      <header className='topBar'>        
+      <Headers />
+      </header>      
+        
+        <div className="pageLeft"> 
+        <SideBar />
         </div>
 
-      
+        <div className="pageRight">
+          <Outlet />
 
-    </div>
-  </div>
+        </div>
+     
+
+
+
+    </main >
+
   )
 }
 

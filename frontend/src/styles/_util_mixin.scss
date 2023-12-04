@@ -1,0 +1,39 @@
+@mixin Center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin Round($size){
+    vertical-align: middle;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+@mixin Avarter($direaction) {
+    @include Center();
+    flex-direction: $direaction;
+    height: 100%;
+    margin-right: 0px;
+
+    img {
+        @include Round(50px)
+    }
+    span{
+        text-transform: capitalize;
+    }
+    p{
+        font-size: .7rem;
+    }
+}
+
+@mixin Glass(){
+    background: 
+    linear-gradient(to right bottom, rgba(255,255,255,.5), 
+    rgba(255,255,255,.3));
+}
+
+@mixin Shadow(){
+    box-shadow: 0 .3rem .3rem rgba(0,0,0,.5);
+}

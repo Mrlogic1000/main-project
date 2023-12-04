@@ -4,12 +4,12 @@ import {FcDepartment} from 'react-icons/fc'
 import {MdOutlineReportOff,MdOutlineDashboard,MdDevicesOther} from 'react-icons/md'
 
 import AppLink from './AppLink'
+import Avater from './Avaters'
 
-function SideBar() {
+function PageLeft() {
     const menus = [
         {icon:<MdOutlineDashboard/>, title:'Dashboard', active:true, route:'/'},
-        {icon:<FaUsers/>, title:'Users', active:false, route:'users'},
-        // {icon:<FaUsers/>, title:'My Account', active:false,},
+        {icon:<FaUsers/>, title:'Users', active:false, route:'users'},        
         {icon:<FaTasks/>, title:'Task', active:false, route:'task'},
         {icon:<MdOutlineReportOff/>, title:'Report', active:false, route:'report'},
         {icon:<FaRegUser/>, title:'Profile', active:false, route:'profile'},
@@ -17,14 +17,24 @@ function SideBar() {
         {icon:<FcDepartment/>, title:'Department', active:false, route:'department'},
     ]
   return (
-    <div className="sidenav">       
+    <>       
+       <section className='user'>
+       <Avater />
+       </section>
+       
+       <section className='navLink'>
        {menus.map((menu,index)=>(
-         <AppLink key={index} icon={menu.icon} route={menu.route} title={menu.title} active={menu.active}/>
+         <AppLink key={index} icon={menu.icon} route={menu.route} title={menu.title} />
        ))}
+       </section>
+       
+
+
+       </>
         
           
-        </div>
+       
   )
 }
 
-export default SideBar
+export default PageLeft

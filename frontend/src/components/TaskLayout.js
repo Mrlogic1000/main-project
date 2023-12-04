@@ -6,7 +6,6 @@ import client from '../HTTPRequest'
 function TaskLayout() {
   return (
    <>
-   <MiniHeader name='Task' page='/task' />  
          <Outlet/>
 
         

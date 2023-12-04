@@ -1,0 +1,18 @@
+.app-header {
+    background-color: var(--primary);
+    margin-left: var(--sidebar-size);
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: var(--app-header-height);
+    /* font-size: calc(10px + 2vmin); */
+    color: white;
+  }
+
+  .mini-header h2 {
+    color: rgb(118, 118, 118);
+  }
+  
+  .mini-header span {
+    color: $primary;
+  }

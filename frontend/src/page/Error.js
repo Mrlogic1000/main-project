@@ -1,6 +1,6 @@
 import React from 'react'
-import Headers from '../components/Headers'
-import SideBar from '../components/SideBar'
+import Headers from '../components/TopBar'
+import SideBar from '../components/PageLeft'
 
 function Error() {
   return (

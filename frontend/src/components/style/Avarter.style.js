@@ -1,30 +1,29 @@
 import styled from "styled-components";
 
 
-
-
-
-export const StyleAvarter = styled.div`
+const Averter = styled.div`
 display: flex;
 align-items: center;
 height: 100%;
-margin-right: 20px;
+margin-right: 0px;
 img{
     vertical-align: middle;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-span{
+
+`
+
+
+export const StyleAvarter = styled(Averter)`span{
     font-weight: bold;
     padding: 0 5px
 }
 
 `
-export const StyleAvarterWithIcon = styled.div`
+export const StyleAvarterWithIcon = styled(Averter)`
 position: relative;
-display: flex;
-align-items: center;
 height: 100%;
 width: 100%;
 margin-right: 20px;
