@@ -1,6 +1,5 @@
 import React from 'react'
 import Headers from '../components/TopBar'
-import SideBar from '../components/PageLeft'
 
 function Error() {
   return (
@@ -8,7 +7,7 @@ function Error() {
 
     <div className='app-body'>
 
-      <SideBar/>
+      
 
       <Headers/>
       <div className="content">

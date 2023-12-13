@@ -1,31 +1,50 @@
 import React from 'react'
-import Headers from './TopBar';
-import SideBar from './PageLeft';
+import TopBar from './TopBar';
+
 import { Outlet } from 'react-router-dom';
+import { Box, Grid, styled, Paper } from '@mui/material';
 
 function RootLayout() {
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
   return (
 
 
-    <main className='container'>
-      
-      <header className='topBar'>        
-      <Headers />
-      </header>      
+    <div className='container' >
+
+
+      <div className='topBar'>
+        <TopBar />
+      </div>
+
+
+
+
+
+      <div className="page">
+
         
-        <div className="pageLeft"> 
-        <SideBar />
-        </div>
-
-        <div className="pageRight">
+         
           <Outlet />
+       
 
-        </div>
-     
+      </div>
 
 
 
-    </main >
+
+
+
+
+
+
+    </div >
 
   )
 }

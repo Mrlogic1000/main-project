@@ -4,8 +4,8 @@
 .container {
   display: grid;
   grid-template-areas:
-    "pageLeft topBar"
-    "pageLeft pageRight";
+    "topBar topBar"
+    "page page";
 
   grid-template-columns: 200px 1fr;
   grid-template-rows: 60px 1fr;
@@ -13,37 +13,47 @@
 
 .topBar {
   grid-area: topBar;
+  display: grid;
+  grid-template-areas: "logo navBar";
+  grid-template-columns: 200px 1fr;
+
+  .logo{
+    grid-area: logo;
+  }
+  .navBar{
+    grid-area: navBar;
+  }
 }
 
 
 // left part of the app
 
-.pageLeft {
-  grid-area: pageLeft;
+
+.page {
+  grid-area: page;
   display: grid;
-  grid-template-areas:
-  "user"
-  "navLink";
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr;
-
-  .user {
-    grid-area: user;    
+  grid-template-areas: "pageLeft pageRight";
+  grid-template-columns: 200px 1fr;
+  .pageLeft {
+    grid-area: pageLeft;
     
+  
+    .navLink {
+      grid-area: navLink;
+    }
+
+    .pageRight{
+      grid-area: pageRight;
+      
+    }
+  
+  
+  
+  
+  
   }
-
-  .navLink {
-    grid-area: navLink;
-  }
-
-
-
-
-
-}
-
-.pageRight {
-  grid-area: pageRight;
+  
+  
 
 }
 
@@ -68,6 +78,7 @@
 
 
 @import 'topBar';
+@import 'page';
 @import 'pageLeft';
 @import 'pageRight';
 

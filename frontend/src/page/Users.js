@@ -3,6 +3,7 @@ import Tables from '../components/Tables'
 import client from '../HTTPRequest'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import Card from '../components/Card'
+import { Button } from '@mui/material'
 
 // const users = useLoaderData()
 
@@ -39,6 +40,8 @@ function Users() {
         ))
       }
       {/* </Tables> */}
+
+      <Button variant="contained">Contained</Button>
     </>
   )
 }

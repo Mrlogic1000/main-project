@@ -1,6 +1,12 @@
 .container{
-    // background-color: lighten($secondary, 70%);
-   @include Glass();
-    height: 100vh;
-    width: 100%;
+    // background-color: $secondary;
+    // background-color: rgb(44,41,74);  
+    // background-image: linear-gradient(to right, rgb(156,213,241) , rgb(252,163,193)); 
+    background-color: rgba(255, 255, 255, .4); 
+    border: 1px solidrgba(255, 255, 255, .7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(7px);
+    height: 97vh;
+    width: 97%;
+    border-radius: 20px;
 }

@@ -1,34 +1,68 @@
 .topBar {
     grid-area: topBar;
-    width: 100%;    
-    display: flex;
-    justify-content: space-between;    
-    color: white;
-    background-color: $primary;
-    .avarter{
-        @include Avarter(row);
+    width: 100%;
+    // color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  @include Glass(.1);
+//   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    overflow: hidden;
+
+    // .avarter{
+    //     @include Avarter(row);
+    // }
+    .logo {
+
+        @include Glass(.5);
+        height: 100%;
+
+        color: black;
+
+        padding: 20px;
+        @include Center;
+    }
+
+    .navBar {
+        height: 100%;
+        margin-left: 20px;
+        // background-color: green;
+
+        ul {
+            @include Center;
+            justify-content: space-between;
+            // background-color: red;
+            height: 100%;
+            width: 50%;
+            padding: 0 20px;
+
+            li {
+                padding: .5rem;
+                margin: .7rem;
+                list-style: none;
+                // background-color: #d893a3;
+                
+                // background-color: green;
+               
+                font-weight:600;
+            }
+            .link{
+
+            }
+          
+        }
     }
 }
 
 .miniheader {
-    
+
     background-color: $white;
-    padding: 10px;   
+    padding: 10px;
     justify-content: space-between;
     padding: 10px 30px;
     margin-bottom: 20px;
 }
 
-.logo {
-    background-color: $sidebar-header;
-    width: $sidebar-size;
-    height: 100%;
-    
-    color: $white;
-    gap: 10px;
-    padding: 20px;
-    @include Center;
-}
+
 
 
 
@@ -45,5 +79,3 @@
         border-radius: 50%;
     }
 }
-
-

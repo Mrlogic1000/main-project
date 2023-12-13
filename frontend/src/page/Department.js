@@ -1,11 +1,14 @@
 import React from 'react'
-import MiniHeader from '../components/MiniHeader'
+import {FaTasks,FaUsers,FaRegUser} from 'react-icons/fa'
+import {FcDepartment} from 'react-icons/fc'
+import {MdOutlineReportOff,MdOutlineDashboard,MdDevicesOther} from 'react-icons/md'
+
+
 
 function Department() {
   return (
     <>
-    <MiniHeader name='Department' page=' / Department'/>
-    <div>Department</div>
+  <h1>Department</h1>
     </>
   )
 }

@@ -22,11 +22,11 @@ function Device() {
   
   return (
 
-    <section className='tb'>
+    <section className='table-container'>
       
      <section className='table_header' >
       <h3>Device</h3>
-      {/* <Link className='link-btn' to='create-device'>New Device</Link> */}
+      <Link className='link-btn' to='create-device'>New Device</Link>
       </section >
       <section className='table_body'>
 
@@ -59,9 +59,11 @@ function Device() {
                 <td data-cell='Categories'>{device.categories}</td>
                 <td data-cell='Installation'>{device.installation}</td>
                 <td data-cell='Status'>{device.status}</td>
-                <td data-cell='Action' className='action'>
-                  <Link className='edit-btn' to={`${device.id}`}><MdOutlineEdit/></Link>
-                  <span className='del-btn' onClick={() => { deteleItem(device.id) }}><MdOutlineDeleteForever /></span>
+                <td data-cell='Action' >
+                 <div className='action'>
+                 <Link className='btn' to={`${device.id}`}><MdOutlineEdit/></Link>
+                  <span className='btn' onClick={() => { deteleItem(device.id) }}><MdOutlineDeleteForever /></span>
+                 </div>
                 </td>
               </tr>
   

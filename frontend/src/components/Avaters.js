@@ -1,12 +1,13 @@
 import React from 'react'
-import profile1 from '../images/profile1.jpg'
+
+import { Avatar } from '@mui/material'
 
 
 function Avater() {
   return (
     <div className='avarter'>        
-        <img src={profile1}  alt="" />       
-        <span>Stephen</span>
+            
+       
         
     </div>
   )
