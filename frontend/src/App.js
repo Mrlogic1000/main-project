@@ -44,6 +44,7 @@ import Service from './page/Service';
 import OutletService from './page/OutletService';
 import PublicAddres from './page/PublicAddres';
 import Intercom from './page/Intercom';
+import Saves from './page/Saves';
 import Outlets from './page/Outlets';
 function App() {
   const router = createBrowserRouter(
@@ -80,6 +81,9 @@ function App() {
             <Route index element={<Device />} loader={DeviceLoader} />
             <Route path='publicaddres' element={<PublicAddres />}  />
             <Route path='intercoms' element={<Intercom />}  />
+            <Route path='saves' element={<Saves/>}  />
+           
+           
             <Route path=':id' element={<EditDevice />} loader={EditDeviceLoader} action={EditDeviceAction} />
             <Route path='create-device' element={<CreateDevice />} action={DeviceAction} />
           </Route>

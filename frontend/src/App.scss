@@ -88,6 +88,12 @@ a {
   width: 100%;
   height: auto;
 }
+.link-btn{
+  padding: .8em;
+  @include Center;
+  @include Glass(.5);
+  background-color: $shiped;
+}
 
 
 

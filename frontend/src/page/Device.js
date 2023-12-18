@@ -49,11 +49,11 @@ function Device() {
           <tbody>
           {
             devices?.map((device) => (
-              <tr key={device.id} style={{ borderLeftColor: devices.color }}>
+              <tr  key={device.id} style={{ borderLeftColor: devices.color }}>
                 {/* <td><span className='status'>&nbsp;</span></td> */}
                 <td data-cell="Name">{device.name}</td>
                 <td data-cell='ID'>{device.device_id}</td>
-                <td data-cell='Description' >{device.description}</td>
+                <td  data-cell='Description' ><div>{device.description}</div></td>
                 <td data-cell='Network Address'>{device.network_address}</td>
                 <td data-cell='MAC Addres'>{device.mac}</td>
                 <td data-cell='Categories'>{device.categories}</td>

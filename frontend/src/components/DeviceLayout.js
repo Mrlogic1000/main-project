@@ -9,8 +9,10 @@ import {MdOutlineReportOff,MdOutlineDashboard,MdDevicesOther} from 'react-icons/
 function DeviceLayout() {
   const menus = [
     {icon:<FaUsers/>, title:'Network Device', active:false, route:' '},        
-    {icon:<FaTasks/>, title:'Public Area', active:false, route:'publicaddres'},
-    {icon:<FaTasks/>, title:'Intercoms', active:false, route:'intercoms'},
+    {icon:<FaTasks/>, title:'Public Address', active:false, route:'publicaddres'},
+    {icon:<FaTasks/>, title:'Intercoms', active:false, route:'intercoms'},   
+    {icon:<FaTasks/>, title:'Saves', active:false, route:'saves'},   
+   
     
    
 ]

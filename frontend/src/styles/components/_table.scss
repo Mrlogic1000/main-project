@@ -1,12 +1,13 @@
-.table-container{
-    width: 98%;
-    height: 95%;
+.table-container {
+    width: 75vw;
+    height: 80vh;
     font-size: .8rem;
     font-weight: 400;
-   
+
     color: black;
+    overflow: hidden;
     // @include Glass(.35);
-    
+
 
     .table_header {
         width: 100%;
@@ -14,16 +15,15 @@
         display: flex;
         justify-content: space-between;
         color: white;
-        // background-color: #fff4;
         padding: .8rem 1rem;
     }
 
     .table_body {
-        width: 80vw;
-        min-height: calc(89% - 1.6rem);        
-        @include Glass(.1);       
+        width: 100%;
+        min-height: calc(89% - 1.6rem);
+        @include Glass(.1);
         border-radius: .6rem;
-        overflow:auto;
+        overflow: auto;
 
         &::-webkit-scrollbar {
             width: 0.5rem;
@@ -46,22 +46,22 @@
         }
 
     }
+    th{
+        padding: .8rem;
+    }
+    
+
+    table,
+    tr,
+    td {
+        border-collapse: collapse;
+        padding: .2em .6em;
+    }
 
     table {
-        width: 100%;        
+        width: 100%;
         border-collapse: collapse;
-        background-color: yellow;       
-        padding: .5rem;
-       thead{
-        // display: block;
-        width: 100%;
-        background-color: #006b21;
-        tr{
-            display: block;
-            background-color: pink;
-        width: 100%;
-        }
-       }
+
 
         td {
             img {
@@ -71,47 +71,53 @@
                 border-radius: 50%;
                 vertical-align: middle;
             }
+
+            div {
+                white-space: nowrap;
+                width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+            }
         }
 
         th,
         td {
-            
-            border-collapse: collapse;
-            padding: 1rem;
+
             text-align: left;
-            
+
         }
 
         thead {
             th {
-                // position: sticky;
+                position: sticky;
                 top: 0;
                 left: 0;
                 @include Glass(.5)
-                // background-color: #d5d1defe;
             }
         }
 
         tbody {
-            // display: block;
-            width: 100%;
-            background-color: red;
-            height: 80px;
-            tr{
-                &:nth-child(even) {                   
+
+            tr {
+                &:nth-child(even) {
                     @include Glass(.5)
                 }
+
                 &:hover {
                     background-color: #fff6;
                 }
             }
-            td{
-                .action{
+
+            td {
+                .action {
                     display: flex;
                     color: white;
+                    text-align: center;
                 }
-                .btn{
-                    background-color: $btn;                   
+
+                .btn {
+                    background-color: $btn;
                     color: white;
                 }
             }
@@ -120,6 +126,8 @@
         // -------Table
     }
 }
+
+
 
 
 
@@ -158,33 +166,33 @@
 //         width: 100%;
 //         background-color: red;
 //     }
-  
+
 //     .sidenav {
 //         display: none;
 //     }
-  
+
 //     .app-header {
 //         margin-left: 0;
 //     }
-  
-    
-  
+
+
+
 //     thead {
 //         display: none;
 //     }
-  
+
 //     tr {
 //         margin-bottom: 2em;
 //     }
-  
+
 //     td {
 //         display: block;
-  
+
 //     }
-  
+
 //     td:before {
 //         content: attr(data-cell) ":";
 //         padding-right: .5em;
 //     }
-  
+
 //   }
